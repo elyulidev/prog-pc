@@ -1,0 +1,64 @@
+{
+	"placeholderImages": [
+		{
+			"id": "module-1",
+			"description": "Abstract representation of programming fundamentals",
+			"imageUrl": "https://picsum.photos/seed/m1/600/400",
+			"imageHint": "abstract code"
+		},
+		{
+			"id": "module-2",
+			"description": "Diagram of data structures",
+			"imageUrl": "https://picsum.photos/seed/m2/600/400",
+			"imageHint": "data structure"
+		},
+		{
+			"id": "module-3",
+			"description": "Illustration of different programming paradigms",
+			"imageUrl": "https://picsum.photos/seed/m3/600/400",
+			"imageHint": "programming concept"
+		},
+		{
+			"id": "book-1",
+			"description": "Book cover",
+			"imageUrl": "https://picsum.photos/seed/b1/300/400",
+			"imageHint": "book cover"
+		},
+		{
+			"id": "book-2",
+			"description": "Book cover",
+			"imageUrl": "https://picsum.photos/seed/b2/300/400",
+			"imageHint": "book cover"
+		},
+		{
+			"id": "book-3",
+			"description": "Book cover",
+			"imageUrl": "https://picsum.photos/seed/b3/300/400",
+			"imageHint": "book cover"
+		},
+		{
+			"id": "python-logo",
+			"description": "Python logo",
+			"imageUrl": "https://picsum.photos/seed/python/400/400",
+			"imageHint": "Python logo"
+		},
+		{
+			"id": "vscode-logo",
+			"description": "Visual Studio Code logo",
+			"imageUrl": "https://picsum.photos/seed/vscode/400/400",
+			"imageHint": "VSCode logo"
+		},
+		{
+			"id": "tiobe-chart",
+			"description": "Chart showing Python's popularity on the TIOBE index",
+			"imageUrl": "https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/conf1/tiobe-python.webp",
+			"imageHint": "TIOBE chart"
+		},
+		{
+			"id": "kitchen-1",
+			"description": "A kitchen",
+			"imageUrl": "https://picsum.photos/seed/kitchen1/600/400",
+			"imageHint": "kitchen"
+		}
+	]
+}
