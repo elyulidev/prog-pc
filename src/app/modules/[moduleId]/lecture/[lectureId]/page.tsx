@@ -36,7 +36,7 @@ export default async function LecturePage({ params }: LecturePageProps) {
 				</Link>
 				<ChevronRight className='h-4 w-4' />
 				<Link
-					href={`/modules/${module.id}`}
+					href={`/modules/${modulo.id}`}
 					className='hover:text-primary transition-colors'
 				>
 					{modulo.title}
