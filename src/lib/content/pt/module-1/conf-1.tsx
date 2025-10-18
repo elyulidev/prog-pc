@@ -37,7 +37,7 @@ export default function LecturePage() {
 			</header>
 
 			{/* Segment 1: The Initial Spark */}
-			<div className='grid gap-8 lg:grid-cols-2'>
+			<div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
 				<Card className='hover:border-primary/50 transition-all'>
 					<CardHeader className='flex-row items-center gap-4'>
 						<div className='p-3 rounded-full bg-primary/10'>
@@ -99,8 +99,12 @@ export default function LecturePage() {
 							<Image
 								src='/conf1/tiobe-python.webp'
 								alt='Gráfico do índice TIOBE mostrando a popularidade do Python'
-								fill
 								className='object-contain'
+								priority
+								style={{ aspectRatio: "92/31" }}
+								fill
+								sizes='sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 13vw"
+      />'
 							/>
 						</div>
 						<p className='text-xs text-center text-muted-foreground/80'>
@@ -197,7 +201,7 @@ export default function LecturePage() {
 			</Card>
 
 			{/* Segment 3 & 4: Setup and First Spell */}
-			<div className='grid gap-8 lg:grid-cols-2'>
+			<div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
 				<div className='space-y-8'>
 					<Card className='hover:border-primary/50 transition-all'>
 						<CardHeader className='flex-row items-center gap-4'>

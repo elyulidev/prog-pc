@@ -42,6 +42,8 @@
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
+
+	--breakpoint-xs: 26rem;
 }
 
 :root {
@@ -119,6 +121,15 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-pretty;
 	}
 }
 

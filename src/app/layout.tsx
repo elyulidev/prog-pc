@@ -37,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang='pt' suppressHydrationWarning>
 			<body
-				className={`${sourceCodePro.variable} ${ptSans.variable} ${inter.variable} antialiased`}
+				className={`${sourceCodePro.variable} ${ptSans.variable} ${inter.variable} antialiased overflow-x-hidden`}
 			>
 				<ThemeProvider
 					attribute='class'

@@ -29,8 +29,8 @@ export default async function LecturePage({ params }: LecturePageProps) {
 	);
 
 	return (
-		<div className='space-y-6 max-w-5xl mx-auto'>
-			<div className='flex items-center gap-2 text-sm text-muted-foreground'>
+		<div className='space-y-6 max-w-xs xs:max-w-5xl mx-auto'>
+			<div className='flex items-center gap-2 text-sm text-muted-foreground '>
 				<Link href='/modules' className='hover:text-primary transition-colors'>
 					Módulos
 				</Link>

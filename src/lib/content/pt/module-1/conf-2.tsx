@@ -167,7 +167,7 @@ z2 = 2 - 2j`}
 			</Card>
 
 			{/* Segment 3 & 4: Operators and Complex Plane */}
-			<div className='grid gap-8 lg:grid-cols-2'>
+			<div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
 				<Card className='hover:border-primary/50 transition-all'>
 					<CardHeader className='flex-row items-center gap-4'>
 						<div className='p-3 rounded-full bg-primary/10'>
