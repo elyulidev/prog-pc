@@ -39,7 +39,7 @@
 		{
 			"id": "python-logo",
 			"description": "Python logo",
-			"imageUrl": "https://picsum.photos/seed/python/400/400",
+			"imageUrl": "/python-logo.webp",
 			"imageHint": "Python logo"
 		},
 		{
@@ -51,7 +51,7 @@
 		{
 			"id": "tiobe-chart",
 			"description": "Chart showing Python's popularity on the TIOBE index",
-			"imageUrl": "https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/conf1/tiobe-python.webp",
+			"imageUrl": "/conf1/tiobe-python.webp",
 			"imageHint": "TIOBE chart"
 		},
 		{

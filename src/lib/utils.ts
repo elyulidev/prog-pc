@@ -11,11 +11,24 @@ export const getImage = (id: string) => {
 	if (
 		image &&
 		image.id === "tiobe-chart" &&
-		process.env.NODE_ENV !== "production"
+		process.env.NODE_ENV === "production"
 	) {
 		return {
 			...image,
-			imageUrl: "/conf1/tiobe-python.webp",
+			imageUrl:
+				"https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/conf1/tiobe-python.webp",
+		};
+	}
+
+	if (
+		image &&
+		image.id === "python-logo" &&
+		process.env.NODE_ENV === "production"
+	) {
+		return {
+			...image,
+			imageUrl:
+				"https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/python-logo.webp",
 		};
 	}
 	return image;

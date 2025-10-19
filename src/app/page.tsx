@@ -3,16 +3,19 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, Code, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getImage } from "@/lib/utils";
 
 export default function Home() {
+	const logoImg = getImage("python-logo");
+
 	return (
 		<div className='space-y-12'>
 			{/* Hero Section */}
 			<section className='text-center py-20'>
 				<div className='container mx-auto'>
 					<Image
-						src='/conf1/python-logo.png'
-						alt='Python Logo'
+						src={logoImg?.imageUrl || "/python-logo.webp"}
+						alt={logoImg?.description || "Python Logo"}
 						width={150}
 						height={150}
 						className='rounded-lg shadow-lg mx-auto mb-8'

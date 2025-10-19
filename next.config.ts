@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
 				pathname: "/seed/**",
 				search: "",
 			},
+			{
+				protocol: "https",
+				hostname: "cz7algaabcz8rpd1.public.blob.vercel-storage.com",
+				port: "",
+				pathname: "",
+				search: "",
+			},
 		],
 	},
 };
