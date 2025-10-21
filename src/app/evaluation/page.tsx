@@ -28,7 +28,7 @@ export default function EvaluationPage() {
 				<CardContent>
 					<Button asChild>
 						<a
-							href='/https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/Avalia%C3%A7%C3%A3o.pdf'
+							href='https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/Avalia%C3%A7%C3%A3o.pdf'
 							download
 							target='_blank'
 							rel='noopener noreferrer'
