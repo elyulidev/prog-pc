@@ -36,6 +36,29 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pt' suppressHydrationWarning>
+			<head>
+				<link rel='icon' href='/favicon.ico' type='image/ico' sizes='48x48' />
+				<link
+					rel='icon'
+					href='/favicon-16x16.png'
+					type='image/png'
+					sizes='16x16'
+				/>
+				<link
+					rel='icon'
+					href='/favicon-32x32.png'
+					type='image/ico'
+					sizes='32x32'
+				/>
+				<link
+					rel='apple-touch-icon'
+					href='/apple-touch-icon.png'
+					type='image/png'
+					sizes='180x180'
+				/>
+
+				<link rel='manifest' href='/manifest.webmanifest' />
+			</head>
 			<body
 				className={`${sourceCodePro.variable} ${ptSans.variable} ${inter.variable} antialiased overflow-x-hidden`}
 			>

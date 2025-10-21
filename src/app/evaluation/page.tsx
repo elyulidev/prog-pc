@@ -27,7 +27,10 @@ export default function EvaluationPage() {
 				</CardHeader>
 				<CardContent>
 					<Button asChild>
-						<a href='/evaluation-criteria.pdf' download>
+						<a
+							href='/https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/Avalia%C3%A7%C3%A3o.pdf'
+							download
+						>
 							<Download className='mr-2 h-4 w-4' />
 							Baixar PDF
 						</a>
