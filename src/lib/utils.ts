@@ -42,5 +42,16 @@ export const getImage = (id: string) => {
 			imageUrl: `https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/${image.id}.webp`,
 		};
 	}
+
+	if (
+		image &&
+		image.id.startsWith("book-") &&
+		process.env.NODE_ENV === "production"
+	) {
+		return {
+			...image,
+			imageUrl: `https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/${image.id}.webp`,
+		};
+	}
 	return image;
 };
