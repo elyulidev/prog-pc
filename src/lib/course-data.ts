@@ -65,17 +65,18 @@ export const courseModules: Module[] = [
 	},
 	{
 		id: "2",
-		title: "Módulo II: Estruturas de Controle e Dados",
+		title:
+			"Módulo II: NumPy, uma biblioteca especializada em computação numérica e análise de dados",
 		description:
-			"Explore como controlar o fluxo de seus programas e organizar dados de forma eficiente.",
+			"O NumPy oferece funções matemáticas abrangentes, geradores de números aleatórios, rotinas de álgebra linear, transformadas de Fourier e muito mais.",
 		imageId: "module-2",
 		lectures: [],
 	},
 	{
 		id: "3",
-		title: "Módulo III: Paradigmas de Programação",
+		title: "Módulo III: Visualização de Dados com Matplotlib",
 		description:
-			"Compreenda diferentes formas de pensar e estruturar seu código.",
+			"Matplotlib é uma biblioteca abrangente para criar visualizações estáticas, animadas e interativas em Python. A Matplotlib torna as coisas fáceis fáceis e as coisas difíceis possíveis.",
 		imageId: "module-3",
 		lectures: [],
 	},

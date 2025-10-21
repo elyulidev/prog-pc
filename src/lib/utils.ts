@@ -31,5 +31,16 @@ export const getImage = (id: string) => {
 				"https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/python-logo.webp",
 		};
 	}
+
+	if (
+		image &&
+		image.id.startsWith("module-") &&
+		process.env.NODE_ENV === "production"
+	) {
+		return {
+			...image,
+			imageUrl: `https://cz7algaabcz8rpd1.public.blob.vercel-storage.com/${image.id}.webp`,
+		};
+	}
 	return image;
 };

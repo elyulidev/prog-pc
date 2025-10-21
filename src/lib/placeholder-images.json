@@ -3,19 +3,19 @@
 		{
 			"id": "module-1",
 			"description": "Abstract representation of programming fundamentals",
-			"imageUrl": "https://picsum.photos/seed/m1/600/400",
+			"imageUrl": "/module-1.webp",
 			"imageHint": "abstract code"
 		},
 		{
 			"id": "module-2",
 			"description": "Diagram of data structures",
-			"imageUrl": "https://picsum.photos/seed/m2/600/400",
+			"imageUrl": "/module-2.webp",
 			"imageHint": "data structure"
 		},
 		{
 			"id": "module-3",
 			"description": "Illustration of different programming paradigms",
-			"imageUrl": "https://picsum.photos/seed/m3/600/400",
+			"imageUrl": "/module-3.webp",
 			"imageHint": "programming concept"
 		},
 		{
