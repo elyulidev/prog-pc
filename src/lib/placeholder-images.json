@@ -20,20 +20,20 @@
 		},
 		{
 			"id": "book-1",
-			"description": "Book cover",
-			"imageUrl": "https://picsum.photos/seed/b1/300/400",
+			"description": "O propósito deste livro é fazer de você um bom programador, em geral, e um bom programador de Python, em particular. Você aprenderá de modo eficiente e adotará bons hábitos à medida que eu lhe proporcionar uma base sólida em conceitos gerais de programação.",
+			"imageUrl": "/book-1.webp",
 			"imageHint": "book cover"
 		},
 		{
 			"id": "book-2",
-			"description": "Book cover",
-			"imageUrl": "https://picsum.photos/seed/b2/300/400",
+			"description": "Este é um livro para iniciantes em programação ou desenvolvedores avançados com pouca experiência em Python. Se você foruminiciante, leia-o com calma para não acumular dúvidas ao longo do aprendizado.",
+			"imageUrl": "/book-2.webp",
 			"imageHint": "book cover"
 		},
 		{
 			"id": "book-3",
-			"description": "Book cover",
-			"imageUrl": "https://picsum.photos/seed/b3/300/400",
+			"description": "Nesse trabalho, a linguagem de programação Python foi adotada para ser apresentada aos profissionais da área da matemática, por ser uma linguagem versátil, acessível e mais próxima da linguagem humana, ou seja, de alto nível. Além disso, o Python é uma linguagem interpretada, orientada a objeto, de código aberto e com semântica dinâmica.",
+			"imageUrl": "/book-3.webp",
 			"imageHint": "book cover"
 		},
 		{

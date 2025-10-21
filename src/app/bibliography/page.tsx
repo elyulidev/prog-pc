@@ -1,7 +1,16 @@
 import Image from "next/image";
 import { bibliography } from "@/lib/course-data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import { getImage } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Download } from "lucide-react";
 
 export default function BibliographyPage() {
 	return (
@@ -12,7 +21,7 @@ export default function BibliographyPage() {
 			<p className='text-lg text-muted-foreground'>
 				Livros e recursos recomendados para o curso.
 			</p>
-			<div className='grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+			<div className='grid gap-6 sm:grid-cols-2 md:grid-cols-3 max-w-2xl'>
 				{bibliography.map((book) => {
 					const image = getImage(book.imageId);
 					return (
@@ -24,7 +33,7 @@ export default function BibliographyPage() {
 											src={image.imageUrl}
 											alt={image.description}
 											fill
-											className='object-cover'
+											className='object-contain'
 											data-ai-hint={image.imageHint}
 										/>
 									</div>
@@ -38,6 +47,21 @@ export default function BibliographyPage() {
 									{book.author}
 								</p>
 							</CardContent>
+							<CardFooter className='p-4'>
+								<Button
+									className='w-full hover:shadow-sm transition-all'
+									asChild
+								>
+									<a
+										href={book.href}
+										download
+										target='_blank'
+										rel='noopener noreferrer'
+									>
+										Baixar <Download className='ml-2 h-5 w-5' />
+									</a>
+								</Button>
+							</CardFooter>
 						</Card>
 					);
 				})}

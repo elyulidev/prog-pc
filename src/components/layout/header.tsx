@@ -9,7 +9,7 @@ export function Header() {
 			<SidebarTrigger className='md:hidden' />
 			<div className='flex-1'></div>
 			<div className='flex items-center gap-2'>
-				<LanguageToggle />
+				{/* <LanguageToggle /> */}
 				<ThemeToggle />
 			</div>
 		</header>
