@@ -6,7 +6,6 @@ import {
 	CardContent,
 	CardDescription,
 	CardHeader,
-	CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -71,8 +70,8 @@ export function NumericTypes() {
 					<h2 className='text-2xl font-bold'># Tipos Numéricos</h2>
 				</div>
 				<CardDescription>
-					Matematicamente falando, o Python possui três tipos numéricos: inteiros
-					(int e bool), ponto flutuante (float) e complexo (complex).
+					Matematicamente falando, o Python possui três tipos numéricos:
+					inteiros (int e bool), ponto flutuante (float) e complexo (complex).
 				</CardDescription>
 			</CardHeader>
 			<CardContent>

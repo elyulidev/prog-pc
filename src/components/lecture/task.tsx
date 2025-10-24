@@ -6,7 +6,6 @@ import {
 	CardContent,
 	CardDescription,
 	CardHeader,
-	CardTitle,
 } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
@@ -47,7 +46,9 @@ export function Task({ title, description }: TaskProps) {
 				<CardDescription>{description}</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<Button onClick={() => setIsCompleted(true)}>Marcar como concluído</Button>
+				<Button onClick={() => setIsCompleted(true)}>
+					Marcar como concluído
+				</Button>
 			</CardContent>
 		</Card>
 	);

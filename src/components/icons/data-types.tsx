@@ -1,19 +1,15 @@
-import { SVGProps } from "react";
 import {
 	Hash,
-	CircleDot,
 	Waves,
 	Zap,
-	Type,
 	ListOrdered,
 	Layers,
 	Database,
-	Minus,
 	GitCommitHorizontal,
 	Baseline,
 } from "lucide-react";
 
-export function IntegerIcon(props: SVGProps<SVGSVGElement>) {
+export function IntegerIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg'>
 			<Hash className='w-6 h-6 text-blue-600' />
@@ -21,7 +17,7 @@ export function IntegerIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function BooleanIcon(props: SVGProps<SVGSVGElement>) {
+export function BooleanIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg'>
 			<GitCommitHorizontal className='w-6 h-6 text-purple-600' />
@@ -29,7 +25,7 @@ export function BooleanIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function FloatIcon(props: SVGProps<SVGSVGElement>) {
+export function FloatIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg'>
 			<Waves className='w-6 h-6 text-green-600' />
@@ -37,7 +33,7 @@ export function FloatIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function ComplexIcon(props: SVGProps<SVGSVGElement>) {
+export function ComplexIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg'>
 			<Zap className='w-6 h-6 text-red-600' />
@@ -45,7 +41,7 @@ export function ComplexIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function StringIcon(props: SVGProps<SVGSVGElement>) {
+export function StringIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg'>
 			<Baseline className='w-6 h-6 text-orange-600' />
@@ -53,7 +49,7 @@ export function StringIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function ListIcon(props: SVGProps<SVGSVGElement>) {
+export function ListIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg'>
 			<ListOrdered className='w-6 h-6 text-blue-600' />
@@ -61,7 +57,7 @@ export function ListIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function TupleIcon(props: SVGProps<SVGSVGElement>) {
+export function TupleIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-pink-100 rounded-lg'>
 			<Layers className='w-6 h-6 text-pink-600' />
@@ -69,7 +65,7 @@ export function TupleIcon(props: SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function DictionaryIcon(props: SVGProps<SVGSVGElement>) {
+export function DictionaryIcon() {
 	return (
 		<div className='flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg'>
 			<Database className='w-6 h-6 text-teal-600' />

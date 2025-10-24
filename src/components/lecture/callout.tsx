@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { Info, TriangleAlert } from "lucide-react";
 import React from "react";
@@ -6,6 +5,7 @@ import React from "react";
 interface CalloutProps extends React.HTMLAttributes<HTMLDivElement> {
 	type?: "info" | "warning";
 	title?: string;
+	description?: string;
 }
 
 const calloutConfig = {
@@ -26,6 +26,7 @@ export function Callout({
 	className,
 	type = "info",
 	title,
+	description,
 	...props
 }: CalloutProps) {
 	const config = calloutConfig[type];
@@ -35,14 +36,17 @@ export function Callout({
 			className={cn(
 				"my-4 flex items-start gap-4 rounded-lg border p-4",
 				config.className,
-				className,
+				className
 			)}
 			{...props}
 		>
 			<div className='flex-shrink-0'>{config.icon}</div>
 			<div>
 				{title && <p className='font-semibold'>{title}</p>}
-				<div className='prose dark:prose-invert'>{children}</div>
+				<div className='prose dark:prose-invert'>
+					{description && <p>{description}</p>}
+					{children}
+				</div>
 			</div>
 		</div>
 	);

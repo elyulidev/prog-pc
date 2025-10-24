@@ -11,6 +11,7 @@ type CodeBlockProps = {
 	code: string;
 	language?: string;
 	className?: string;
+	title?: string;
 };
 
 export function CodeBlock({ code, language, className }: CodeBlockProps) {

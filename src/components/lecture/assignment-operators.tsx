@@ -6,7 +6,6 @@ import {
 	CardContent,
 	CardDescription,
 	CardHeader,
-	CardTitle,
 } from "@/components/ui/card";
 import { CodeBlock } from "@/components/code-block";
 
@@ -24,7 +23,8 @@ const assignmentOperators = [
 		label: "Adição e Atribuição",
 		symbol: "+=",
 		equivalent: "n = n + 1",
-		description: "Soma o valor da direita com a variável e atribui o resultado.",
+		description:
+			"Soma o valor da direita com a variável e atribui o resultado.",
 		example: `n = 10\nn += 5  # n agora é 15\nprint(n) # Saída: 15`,
 	},
 	{
@@ -59,8 +59,7 @@ const assignmentOperators = [
 		label: "Módulo e Atribuição",
 		symbol: "%=",
 		equivalent: "n = n % 1",
-		description:
-			"Calcula o módulo e atribui o resultado à variável.",
+		description: "Calcula o módulo e atribui o resultado à variável.",
 		example: `n = 10\nn %= 3  # n agora é 1\nprint(n) # Saída: 1`,
 	},
 ];

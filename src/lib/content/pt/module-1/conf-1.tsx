@@ -8,7 +8,6 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import {
-	StarIcon,
 	Sparkles,
 	Code,
 	Puzzle,
@@ -415,10 +414,9 @@ verdadero_o_falso = (True or False)  # True`}
 						</li>
 					</ol>
 					<Callout
-						icon={<StarIcon className='h-5 w-5' />}
 						title='Dica Pro'
 						description='Quer torná-lo mais interativo? Investigue a função input() para pedir ao utilizador que introduza o valor do raio.'
-						variant='info'
+						type='info'
 					/>
 				</CardContent>
 			</Card>

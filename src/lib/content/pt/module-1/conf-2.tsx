@@ -1,4 +1,3 @@
-
 import { CodeBlock } from "@/components/code-block";
 import {
 	Card,
@@ -78,9 +77,9 @@ export default function lecture() {
 							viewBox='0 0 24 24'
 							fill='none'
 							stroke='currentColor'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='2'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 							className='lucide lucide-sparkles'
 						>
 							<path d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z' />
@@ -94,7 +93,10 @@ export default function lecture() {
 				</CardHeader>
 				<CardContent className='grid grid-cols-2 md:grid-cols-4 gap-4'>
 					{dataTypes.map((type, index) => (
-						<Card key={index} className='p-4 flex flex-col items-center gap-y-2'>
+						<Card
+							key={index}
+							className='p-4 flex flex-col items-center gap-y-2'
+						>
 							{type.icon}
 							<p className='font-semibold'>{type.title}</p>
 							<p className='text-muted-foreground'>{type.subtitle}</p>
@@ -111,8 +113,8 @@ export default function lecture() {
 					<CardDescription>
 						É um conjunto de caracteres dispostos numa determinada ordem,
 						geralmente são utilizados para representar palavras, frases ou
-						textos. Podem ser delimitados por aspas simples, três aspas
-						simples seguidas ou aspas duplas.
+						textos. Podem ser delimitados por aspas simples, três aspas simples
+						seguidas ou aspas duplas.
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
@@ -139,10 +141,10 @@ print(telefone)
 				<CardHeader>
 					<CardTitle>Listas (list)</CardTitle>
 					<CardDescription>
-						Agrupam um conjunto de elementos variados, podendo conter:
-						inteiros, floats, strings, outras listas e outros tipos. Elas são
-						definidas utilizando-se colchetes `[]` para delimitá-las e
-						vírgulas para separar os elementos.
+						Agrupam um conjunto de elementos variados, podendo conter: inteiros,
+						floats, strings, outras listas e outros tipos. Elas são definidas
+						utilizando-se colchetes `[]` para delimitá-las e vírgulas para
+						separar os elementos.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='space-y-4'>
