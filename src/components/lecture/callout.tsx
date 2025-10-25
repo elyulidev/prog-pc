@@ -3,7 +3,7 @@ import { Info, TriangleAlert } from "lucide-react";
 import React from "react";
 
 interface CalloutProps extends React.HTMLAttributes<HTMLDivElement> {
-	type?: "info" | "warning";
+	type?: "info" | "warning" | "danger";
 	title?: string;
 	description?: string;
 }
@@ -18,6 +18,11 @@ const calloutConfig = {
 		icon: <TriangleAlert className='h-5 w-5' />,
 		className:
 			"bg-yellow-100/50 border-yellow-400/80 text-yellow-800 dark:bg-yellow-900/50 dark:border-yellow-700 dark:text-yellow-200",
+	},
+	danger: {
+		icon: <TriangleAlert className='h-5 w-5' />,
+		className:
+			"bg-red-100/50 border-red-400/80 text-red-800 dark:bg-red-900/50 dark:border-red-700 dark:text-red-200",
 	},
 };
 
