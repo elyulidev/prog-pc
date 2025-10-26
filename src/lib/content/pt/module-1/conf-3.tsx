@@ -1,4 +1,3 @@
-
 import { CodeBlock } from "@/components/code-block";
 import { Callout } from "@/components/lecture/callout";
 import { LectureSection } from "@/components/lecture/lecture-section";
@@ -13,7 +12,6 @@ import {
 	Blocks,
 	Package,
 	Box,
-	AlertTriangle,
 	ShieldCheck,
 	Repeat,
 	SkipForward,
@@ -39,13 +37,13 @@ const FeatureCard = ({
 	className?: string;
 }) => (
 	<div
-		className={`rounded-lg border bg-card/50 p-6 backdrop-blur-sm ${className}`}
+		className={`rounded-lg border bg-card/50 p-6 backdrop-blur-sm ${className} overflow-auto`}
 	>
 		<div className='flex items-start gap-4'>
 			<div className='rounded-lg bg-primary/10 p-2 text-primary'>{icon}</div>
 			<div>
 				<h3 className='text-xl font-bold font-headline'>{title}</h3>
-				<div className='prose prose-lg max-w-none text-muted-foreground overflow-x-hidden'>
+				<div className='prose prose-lg max-w-none text-muted-foreground p-3'>
 					{children}
 				</div>
 			</div>
@@ -95,13 +93,16 @@ const LecturePage = () => {
 			</header>
 
 			{/* Block 1: Introduction */}
-			<LectureSection title='Bloco 1: Introdução' subtitle='Além do caminho linear'>
+			<LectureSection
+				title='Bloco 1: Introdução'
+				subtitle='Além do caminho linear'
+			>
 				<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
 					<div className='prose prose-lg max-w-none space-y-4 text-muted-foreground'>
 						<p>
-							Olá a todos! 👋 Bem-vindos à nossa terceira conferência. Hoje, vamos
-							mergulhar em dois dos pilares mais fundamentais da programação:
-							Estruturas de Controlo de Fluxo e Modularidade.
+							Olá a todos! 👋 Bem-vindos à nossa terceira conferência. Hoje,
+							vamos mergulhar em dois dos pilares mais fundamentais da
+							programação: Estruturas de Controlo de Fluxo e Modularidade.
 						</p>
 						<p>
 							Até agora, o vosso código executa de cima para baixo. Mas o mundo
@@ -111,11 +112,13 @@ const LecturePage = () => {
 						</p>
 						<p>
 							Imaginem o vosso código como uma receita de bolo 🍰. Seguir
-							linearmente é fácil, mas limitado. E se a receita dissesse: "
-							<em>Se for um bolo de chocolate, adicionar cacau</em>"? Isso é uma{" "}
-							<strong>decisão</strong>. Ou: "
-							<em>Enquanto a massa não estiver homogénea, continuar a misturar</em>
-							"? Isso é uma <strong>repetição</strong>.
+							linearmente é fácil, mas limitado. E se a receita dissesse: &quot;
+							<em>Se for um bolo de chocolate, adicionar cacau</em>&quot;? Isso
+							é uma <strong>decisão</strong>. Ou: &quot;
+							<em>
+								Enquanto a massa não estiver homogénea, continuar a misturar
+							</em>
+							&quot;? Isso é uma <strong>repetição</strong>.
 						</p>
 					</div>
 					<div className='rounded-lg border bg-card/50 p-6'>
@@ -153,8 +156,8 @@ const LecturePage = () => {
 				<div className='grid grid-cols-1 gap-6 '>
 					<FeatureCard icon={<GitCommit size={24} />} title='if'>
 						<p>
-							A decisão mais simples. Avalia uma condição e, se for
-							Verdadeira, executa um bloco de código.
+							A decisão mais simples. Avalia uma condição e, se for Verdadeira,
+							executa um bloco de código.
 						</p>
 						<CodeBlock
 							language='python'
@@ -165,8 +168,8 @@ if idade >= 18:
 					</FeatureCard>
 					<FeatureCard icon={<GitFork size={24} />} title='if-else'>
 						<p>
-							Uma decisão com um caminho alternativo. Se a condição for Falsa,
-							o bloco <code>else</code> é executado. É um ou outro.
+							Uma decisão com um caminho alternativo. Se a condição for Falsa, o
+							bloco <code>else</code> é executado. É um ou outro.
 						</p>
 						<CodeBlock
 							language='python'
@@ -179,8 +182,8 @@ else:
 					</FeatureCard>
 					<FeatureCard icon={<GitMerge size={24} />} title='if-elif-else'>
 						<p>
-							Para múltiplas condições em cadeia. A primeira condição
-							Verdadeira é executada e o resto é ignorado.
+							Para múltiplas condições em cadeia. A primeira condição Verdadeira
+							é executada e o resto é ignorado.
 						</p>
 						<CodeBlock
 							language='python'
@@ -197,8 +200,8 @@ else:
 				<Callout title='Nota Rápida: switch-case'>
 					<p>
 						Algumas linguagens (C++, Java) têm uma estrutura <code>switch</code>{" "}
-						para testar igualdade múltipla, que pode ser mais legível que
-						vários <code>elif</code>.
+						para testar igualdade múltipla, que pode ser mais legível que vários{" "}
+						<code>elif</code>.
 					</p>
 					<CodeBlock
 						language='csharp'
@@ -224,14 +227,11 @@ switch (diaDaSemana) {
 								<Repeat className='text-primary' />O Loop Condicional: `while`
 							</h3>
 							<p className='mt-2 text-muted-foreground'>
-								Executa um bloco de código repetidamente enquanto uma condição for
-								Verdadeira. É ideal quando não sabemos o número exato de
+								Executa um bloco de código repetidamente enquanto uma condição
+								for Verdadeira. É ideal quando não sabemos o número exato de
 								iterações.
 							</p>
-							<Callout								
-								title='Cuidado: Loops Infinitos!'
-								type='danger'
-							>
+							<Callout title='Cuidado: Loops Infinitos!' type='danger'>
 								<p>
 									Se a condição do `while` nunca se tornar Falsa, o programa
 									ficará preso para sempre. Certifique-se sempre de que a
@@ -303,11 +303,12 @@ for fruta in frutas:
 							Gestão de Erros com `try-except`
 						</h3>
 						<p className='mb-4 text-muted-foreground'>
-							Quando uma operação pode falhar (ex: converter "abc" em número),
-							o programa pode "crashar". Para evitar isso, usamos o bloco{" "}
-							<code>try-except</code>, que nos permite "tentar" executar um
-							código e "apanhar" o erro se ele acontecer, de forma a podermos
-							lidar com ele sem parar o programa.
+							Quando uma operação pode falhar (ex: converter &quot;abc&quot; em
+							número), o programa pode &quot;crashar&quot;. Para evitar isso,
+							usamos o bloco <code>try-except</code>, que nos permite
+							&quot;tentar&quot; executar um código e &quot;apanhar&quot; o erro
+							se ele acontecer, de forma a podermos lidar com ele sem parar o
+							programa.
 						</p>
 						<CodeBlock
 							language='python'
@@ -338,12 +339,12 @@ print(f"Obrigado! A sua idade é {idade_num}.")`}
 						className='md:col-span-2'
 					>
 						<p>
-							Para evitar repetir código (<strong>D</strong>on't{" "}
+							Para evitar repetir código (<strong>D</strong>on&apos;t{" "}
 							<strong>R</strong>epeat <strong>Y</strong>ourself), agrupamos
 							lógica reutilizável em <strong>funções</strong>. Uma função é um
-							bloco de código nomeado que podemos "chamar" quando precisarmos.
-							Elas podem receber dados (<strong>parâmetros</strong>) e devolver
-							um resultado (<strong>return</strong>).
+							bloco de código nomeado que podemos &quot;chamar&quot; quando
+							precisarmos. Elas podem receber dados (<strong>parâmetros</strong>
+							) e devolver um resultado (<strong>return</strong>).
 						</p>
 						<CodeBlock
 							language='python'
@@ -426,8 +427,8 @@ estudante_ana.apresentar_se()`}
 			>
 				<p className='prose prose-lg max-w-none text-muted-foreground'>
 					Vamos criar um mini-programa de gestão de pauta, dividido em dois
-					ficheiros. Este exemplo usa classes, funções, loops, decisões e
-					gestão de erros.
+					ficheiros. Este exemplo usa classes, funções, loops, decisões e gestão
+					de erros.
 				</p>
 				<div className='mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2'>
 					<div className='rounded-lg border bg-card/50 p-4'>
@@ -486,7 +487,7 @@ def main():
     # 6. LOOP (FOR) sobre objetos
     for aluno in lista_da_turma:
         print(f"\\nA avaliar: {aluno.nome}")
-        
+
         # 7. LOOP (WHILE) para input correto
         while True:
             nota = pedir_nota_aluno()
@@ -506,59 +507,65 @@ if __name__ == "__main__":
 			</LectureSection>
 
 			{/* Conclusion & Homework */}
-			<Task title='Conclusão e Tarefa Extraclasse'>
-				<p>
-					Hoje vimos como controlar o fluxo do nosso código com{" "}
-					<strong>decisões</strong> (if/else) e <strong>repetições</strong>{" "}
-					(loops), e como organizar tudo com <strong>funções</strong>,{" "}
-					<strong>classes</strong> e <strong>módulos</strong>. Agora, é a vossa
-					vez de expandir o nosso projeto!
-				</p>
-				<ol>
-					<li>
-						<strong>
-							Melhorar a Classe <code>Aluno</code> (em{" "}
-							<code>gestor_alunos.py</code>):
-						</strong>
-						<ul>
-							<li>
-								Adicione um novo atributo no <code>__init__</code>:{" "}
-								<code>self.faltas = 0</code>.
-							</li>
-							<li>
-								Crie um novo método <code>marcar_falta(self)</code> que faz{" "}
-								<code>self.faltas += 1</code>.
-							</li>
-							<li>
-								Modifique o método <code>apresentar(self)</code> para mostrar
-								também o número de faltas.
-							</li>
-						</ul>
-					</li>
-					<li>
-						<strong>
-							Melhorar o <code>main.py</code>:
-						</strong>
-						<ul>
-							<li>
-								Crie uma função <code>mostrar_menu()</code> que imprime opções
-								para o utilizador: 1. Dar notas, 2. Marcar falta, 3. Ver
-								pauta, 4. Sair.
-							</li>
-							<li>
-								Coloque a lógica principal num loop <code>while True</code> que
-								corre o menu.
-							</li>
-							<li>
-								Use <code>if/elif/else</code> para executar a lógica com base na
-								escolha. Se for "4", use <code>break</code> para sair.
-							</li>
-						</ul>
-					</li>
-				</ol>
-			</Task>
+			<LectureSection
+				title='Bloco 6: Conclusão e Tarefa'
+				subtitle='Ponha em prática o que aprendeu'
+			>
+				<Task title='Tarefa: Gestor de Turma Interativo'>
+					<p>
+						Hoje vimos como controlar o fluxo do nosso código com{" "}
+						<strong>decisões</strong> (if/else) e <strong>repetições</strong>{" "}
+						(loops), e como organizar tudo com <strong>funções</strong>,{" "}
+						<strong>classes</strong> e <strong>módulos</strong>. Agora, é a
+						vossa vez de expandir o nosso projeto!
+					</p>
+					<ol>
+						<li>
+							<strong>
+								Melhorar a Classe <code>Aluno</code> (em{" "}
+								<code>gestor_alunos.py</code>):
+							</strong>
+							<ul>
+								<li>
+									Adicione um novo atributo no <code>__init__</code>:{" "}
+									<code>self.faltas = 0</code>.
+								</li>
+								<li>
+									Crie um novo método <code>marcar_falta(self)</code> que faz{" "}
+									<code>self.faltas += 1</code>.
+								</li>
+								<li>
+									Modifique o método <code>apresentar(self)</code> para mostrar
+									também o número de faltas.
+								</li>
+							</ul>
+						</li>
+						<li>
+							<strong>
+								Melhorar o <code>main.py</code>:
+							</strong>
+							<ul>
+								<li>
+									Crie uma função <code>mostrar_menu()</code> que imprime opções
+									para o utilizador: 1. Dar notas, 2. Marcar falta, 3. Ver
+									pauta, 4. Sair.
+								</li>
+								<li>
+									Coloque a lógica principal num loop <code>while True</code>{" "}
+									que corre o menu.
+								</li>
+								<li>
+									Use <code>if/elif/else</code> para executar a lógica com base
+									na escolha. Se for &quot;4&quot;, use <code>break</code> para
+									sair.
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</Task>
+			</LectureSection>
 
-			<LectureSection title='Bloco 6: Perguntas e Respostas (Q&A)'>
+			<LectureSection title='Bloco 7: Perguntas e Respostas (Q&A)'>
 				<div className='prose prose-lg max-w-none text-muted-foreground'>
 					<p>
 						Agora é a vossa vez! Que dúvidas têm? Algum conceito que não ficou
