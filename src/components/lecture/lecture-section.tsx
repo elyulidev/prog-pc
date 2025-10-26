@@ -1,12 +1,30 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const LectureSection = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-	<section ref={ref} className={cn("space-y-4", className)} {...props} />
-));
+interface LectureSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+	title?: string;
+	subtitle?: string;
+}
+
+const LectureSection = React.forwardRef<HTMLDivElement, LectureSectionProps>(
+	({ className, title, subtitle, children, ...props }, ref) => (
+		<section ref={ref} className={cn("space-y-6", className)} {...props}>
+			{(title || subtitle) && (
+				<header>
+					{title && (
+						<h2 className='text-3xl font-bold tracking-tight font-headline'>
+							{title}
+						</h2>
+					)}
+					{subtitle && (
+						<p className='mt-2 text-lg text-muted-foreground'>{subtitle}</p>
+					)}
+				</header>
+			)}
+			{children}
+		</section>
+	)
+);
 LectureSection.displayName = "LectureSection";
 
 const LectureSectionHeader = React.forwardRef<

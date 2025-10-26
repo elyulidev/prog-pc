@@ -1,767 +1,572 @@
+
 import { CodeBlock } from "@/components/code-block";
 import { Callout } from "@/components/lecture/callout";
 import { LectureSection } from "@/components/lecture/lecture-section";
 import { Task } from "@/components/lecture/task";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	GitCommit,
+	GitCompare,
+	GitFork,
+	GitMerge,
+	RotateCcw,
+	FunctionSquare,
+	Blocks,
+	Package,
+	Box,
+	AlertTriangle,
+	ShieldCheck,
+	Repeat,
+	SkipForward,
+	StopCircle,
+	FileCode,
+	PlayCircle,
+	BookOpen,
+	Clock,
+	Users,
+	User,
+} from "lucide-react";
 import React from "react";
+
+const FeatureCard = ({
+	icon,
+	title,
+	children,
+	className,
+}: {
+	icon: React.ReactNode;
+	title: string;
+	children: React.ReactNode;
+	className?: string;
+}) => (
+	<div
+		className={`rounded-lg border bg-card/50 p-6 backdrop-blur-sm ${className}`}
+	>
+		<div className='flex items-start gap-4'>
+			<div className='rounded-lg bg-primary/10 p-2 text-primary'>{icon}</div>
+			<div>
+				<h3 className='text-xl font-bold font-headline'>{title}</h3>
+				<div className='prose prose-lg max-w-none text-muted-foreground overflow-x-hidden'>
+					{children}
+				</div>
+			</div>
+		</div>
+	</div>
+);
 
 const LecturePage = () => {
 	return (
-		<div className='space-y-12'>
+		<main className='space-y-16'>
 			{/* Conference Header */}
-			<header className='rounded-lg bg-primary/5 p-8'>
-				<p className='text-lg font-semibold text-primary'>
-					Módulo I: Fundamentos de Python e Lógica Algorítmica
-				</p>
-				<h1 className='text-4xl font-bold tracking-tight lg:text-5xl font-headline'>
-					Conferência 3: Estruturas de Controlo de Fluxo e Modularidade
-				</h1>
-				<p className='mt-4 text-lg text-muted-foreground max-w-3xl'>
-					Nesta conferência, vamos mergulhar em dois dos pilares mais
-					fundamentais da programação: Estruturas de Controlo de Fluxo e
-					Modularidade. Aprenderemos como fazer os nossos programas tomar
-					decisões, repetir tarefas e serem organizados de forma eficiente.
-				</p>
+			<header className='relative overflow-hidden rounded-lg bg-primary/5 p-8'>
+				<div className='relative z-10'>
+					<p className='mb-2 font-semibold text-primary'>
+						Módulo I: Fundamentos de Python e Lógica Algorítmica
+					</p>
+					<h1 className='text-4xl font-bold tracking-tight lg:text-5xl font-headline'>
+						Conferência 3: Estruturas de Controlo de Fluxo e Modularidade
+					</h1>
+					<p className='mt-4 max-w-3xl text-lg text-muted-foreground'>
+						Nesta conferência, vamos mergulhar nos pilares da programação:
+						Estruturas de Controlo de Fluxo e Modularidade. Aprenda a criar
+						programas que tomam decisões, repetem tarefas e são organizados de
+						forma eficiente.
+					</p>
+					<div className='mt-6 flex flex-wrap gap-x-8 gap-y-4 text-sm text-muted-foreground'>
+						<div className='flex items-center gap-2'>
+							<User className='h-4 w-4' />
+							<span>
+								<strong>Palestrante:</strong> Project IDX
+							</span>
+						</div>
+						<div className='flex items-center gap-2'>
+							<Clock className='h-4 w-4' />
+							<span>
+								<strong>Duração:</strong> 90 Minutos
+							</span>
+						</div>
+						<div className='flex items-center gap-2'>
+							<Users className='h-4 w-4' />
+							<span>
+								<strong>Público-Alvo:</strong> Iniciantes em Programação
+							</span>
+						</div>
+					</div>
+				</div>
 			</header>
 
-			{/* Introduction */}
-			<LectureSection title='Bloco 1: Introdução'>
-				<Card>
-					<CardHeader>
-						<CardTitle>Boas-vindas e Agenda</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+			{/* Block 1: Introduction */}
+			<LectureSection title='Bloco 1: Introdução' subtitle='Além do caminho linear'>
+				<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+					<div className='prose prose-lg max-w-none space-y-4 text-muted-foreground'>
 						<p>
-							Olá a todos! 👋 Bem-vindos à nossa terceira conferência. Hoje,
-							vamos mergulhar em dois dos pilares mais fundamentais da
-							programação: Estruturas de Controlo de Fluxo e Modularidade.
+							Olá a todos! 👋 Bem-vindos à nossa terceira conferência. Hoje, vamos
+							mergulhar em dois dos pilares mais fundamentais da programação:
+							Estruturas de Controlo de Fluxo e Modularidade.
 						</p>
 						<p>
-							Até agora, provavelmente escreveram código que executa de cima
-							para baixo, uma linha de cada vez, e termina. Mas o mundo real não
-							é assim tão linear. Precisamos que os nossos programas tomem
-							decisões, repitam tarefas e sejam organizados. É exatamente isso
-							que vamos aprender hoje.
+							Até agora, o vosso código executa de cima para baixo. Mas o mundo
+							real não é linear. Precisamos que os nossos programas tomem
+							decisões, repitam tarefas e sejam organizados. É isso que vamos
+							aprender hoje.
 						</p>
-						<p>A nossa agenda para os próximos 90 minutos:</p>
-						<ol>
-							<li>
-								<strong>O que é o Controlo de Fluxo?</strong>
-								<ul>
-									<li>A execução sequencial (o padrão).</li>
-									<li>A necessidade de desvio: Decisões e Repetições.</li>
-								</ul>
+						<p>
+							Imaginem o vosso código como uma receita de bolo 🍰. Seguir
+							linearmente é fácil, mas limitado. E se a receita dissesse: "
+							<em>Se for um bolo de chocolate, adicionar cacau</em>"? Isso é uma{" "}
+							<strong>decisão</strong>. Ou: "
+							<em>Enquanto a massa não estiver homogénea, continuar a misturar</em>
+							"? Isso é uma <strong>repetição</strong>.
+						</p>
+					</div>
+					<div className='rounded-lg border bg-card/50 p-6'>
+						<h4 className='mb-4 flex items-center gap-2 text-xl font-bold font-headline'>
+							<BookOpen className='text-primary' />
+							Agenda da Conferência
+						</h4>
+						<ul className='space-y-3'>
+							<li className='flex items-center gap-3'>
+								<GitCompare className='h-5 w-5 text-primary' />
+								<span>Estruturas de Decisão (if, else, elif)</span>
 							</li>
-							<li>
-								<strong>Parte 1: Estruturas de Decisão (O "Se")</strong>
-								<ul>
-									<li>
-										<code>if</code>, <code>if-else</code>,{" "}
-										<code>if-elif-else</code>
-									</li>
-									<li>Operadores Lógicos (AND, OR, NOT)</li>
-									<li>
-										Estruturas <code>switch-case</code> (ou equivalentes)
-									</li>
-								</ul>
+							<li className='flex items-center gap-3'>
+								<RotateCcw className='h-5 w-5 text-primary' />
+								<span>Estruturas de Repetição (while, for)</span>
 							</li>
-							<li>
-								<strong>Parte 2: Estruturas de Repetição (Os "Loops")</strong>
-								<ul>
-									<li>
-										<code>while</code> (enquanto)
-									</li>
-									<li>
-										<code>for</code> (para)
-									</li>
-									<li>
-										Controlo de loops: <code>break</code> e{" "}
-										<code>continue</code>
-									</li>
-									<li>Manejar erros. Excepções(try-except)</li>
-								</ul>
+							<li className='flex items-center gap-3'>
+								<ShieldCheck className='h-5 w-5 text-primary' />
+								<span>Gestão de Erros (try-except)</span>
 							</li>
-							<li>
-								<strong>Parte 3: Modularidade (O "Como Organizar")</strong>
-								<ul>
-									<li>O que são funções (ou métodos)?</li>
-									<li>Porquê usar funções? (O Princípio DRY)</li>
-									<li>Anatomia de uma função: parâmetros e retorno.</li>
-									<li>Escopo de variáveis (local vs. global).</li>
-									<li>
-										Modularidade Real: Importando Ficheiros Externos. Variável{" "}
-										<code>__name__</code>
-									</li>
-									<li>Classes e Objetos(breve introdução)</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Exemplo Práctico Integrador</strong>
-							</li>
-							<li>
-								<strong>Conclusão e Tarefa Extraclasse</strong>
-							</li>
-						</ol>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>O Fluxo de Controlo Padrão</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>Imaginem que o vosso código é uma receita de bolo. 🍰</p>
-						<ol>
-							<li>Pegar na taça.</li>
-							<li>Adicionar farinha.</li>
-							<li>Adicionar ovos.</li>
-							<li>Adicionar açúcar.</li>
-							<li>Misturar tudo.</li>
-							<li>Levar ao forno.</li>
-							<li>Esperar 30 minutos.</li>
-							<li>Retirar.</li>
-						</ol>
-						<p>
-							Isto é um fluxo sequencial. Cada instrução é executada exatamente
-							uma vez, na ordem em que está escrita. É simples, mas muito
-							limitado.
-						</p>
-						<p>
-							E se a receita dissesse: "Se for um bolo de chocolate, adicionar
-							cacau"?
-						</p>
-						<p>
-							Ou: "Enquanto a massa não estiver homogénea, continuar a
-							misturar"?
-						</p>
-						<p>
-							Ou: "Para preparar a forma: Repetir 3 vezes o processo de untar e
-							polvilhar"?
-						</p>
-						<p>
-							De repente, a nossa receita simples tornou-se num algoritmo.
-							Deixámos de ter um caminho único. Ganhámos o poder de tomar
-							decisões e de repetir tarefas.
-						</p>
-						<p>
-							Isto é o <strong>Controlo de Fluxo</strong>: a capacidade de
-							alterar a ordem pela qual as instruções são executadas, com base
-							em certas condições.
-						</p>
-						<p>
-							E a <strong>Modularidade</strong>? Imaginem que a "receita" de
-							"fazer a cobertura" é tão complexa que a escrevemos numa página
-							separada. Sempre que precisamos da cobertura, em vez de reescrever
-							todos os passos, apenas dizemos: "Ver página 5: 'Fazer
-							Cobertura'". Isso é uma função! É a base da modularidade: agrupar
-							código reutilizável.
-						</p>
-					</CardContent>
-				</Card>
-			</LectureSection>
-
-			{/* Decision Structures */}
-			<LectureSection title='Bloco 2: Estruturas de Decisão'>
-				<Card>
-					<CardHeader>
-						<CardTitle>A Decisão Simples: if</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>
-							O <code>if</code> (que significa "se") é a estrutura de decisão
-							mais simples. Ele avalia uma condição (algo que só pode ser
-							Verdadeiro ou Falso) e, se for verdadeira, executa um bloco de
-							código.
-						</p>
-						<p>
-							Imaginem um fluxograma. O fluxo normal é uma seta a apontar para
-							baixo. De repente, encontramos um losango 💎. Dentro dele, está a
-							pergunta: "Está a chover?".
-						</p>
-						<ul>
-							<li>
-								Se a resposta for "Sim" (Verdadeiro), uma seta desvia-se para um
-								lado e executa a caixa "Levar guarda-chuva".
-							</li>
-							<li>
-								Se a resposta for "Não" (Falso), a seta simplesmente ignora essa
-								caixa.
+							<li className='flex items-center gap-3'>
+								<FunctionSquare className='h-5 w-5 text-primary' />
+								<span>Modularidade com Funções e Classes</span>
 							</li>
 						</ul>
+					</div>
+				</div>
+			</LectureSection>
+
+			{/* Block 2: Decision Structures */}
+			<LectureSection
+				title='Bloco 2: Estruturas de Decisão'
+				subtitle='O poder do "Se"'
+			>
+				<div className='grid grid-cols-1 gap-6 '>
+					<FeatureCard icon={<GitCommit size={24} />} title='if'>
 						<p>
-							No final, ambos os caminhos voltam a juntar-se para continuar o
-							programa.
+							A decisão mais simples. Avalia uma condição e, se for
+							Verdadeira, executa um bloco de código.
 						</p>
 						<CodeBlock
 							language='python'
-							code={`
-# O programa pergunta a idade
-idade = int(input("Qual é a sua idade? "))
-
-# A condição é (idade >= 18)
-# Isto avalia para Verdadeiro (True) ou Falso (False)
+							code={`idade = int(input("Idade? "))
 if idade >= 18:
-    # Este bloco SÓ executa se a condição for Verdadeira
-    print("Você é maior de idade.")
-    print("Já pode tirar a carta de condução.")
-
-# Esta linha está fora do bloco "if", por isso executa SEMPRE
-print("O programa terminou.")
-`}
+    print("É maior de idade.")`}
 						/>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>A Decisão Binária: if-else</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+					</FeatureCard>
+					<FeatureCard icon={<GitFork size={24} />} title='if-else'>
 						<p>
-							Isto é ótimo, mas e se quisermos fazer algo específico quando a
-							condição é falsa? Em vez de apenas ignorar, queremos um caminho
-							alternativo. Usamos o <code>else</code> (que significa "senão").
-						</p>
-						<p>Voltamos ao nosso losango 💎: "Está a chover?".</p>
-						<ul>
-							<li>
-								Se "Sim" (Verdadeiro), seguimos o caminho A: "Levar
-								guarda-chuva".
-							</li>
-							<li>
-								Se "Não" (Falso), seguimos o caminho B: "Levar óculos de sol".
-							</li>
-						</ul>
-						<p>
-							<strong>Importante:</strong> É impossível seguir os dois caminhos.
-							É um ou outro.
+							Uma decisão com um caminho alternativo. Se a condição for Falsa,
+							o bloco <code>else</code> é executado. É um ou outro.
 						</p>
 						<CodeBlock
 							language='python'
-							code={`
-temperatura = 22
-
+							code={`temperatura = 22
 if temperatura > 25:
-    # Bloco Verdadeiro
-    print("Está calor! Ligue o ar condicionado.")
+    print("Está calor!")
 else:
-    # Bloco Falso
-    print("Está uma temperatura agradável.")
-    print("Não é preciso ligar o ar condicionado.")
-
-print("Fim da verificação do tempo.")
-`}
+    print("Não está calor.")`}
 						/>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>Múltiplas Decisões: if-elif-else</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+					</FeatureCard>
+					<FeatureCard icon={<GitMerge size={24} />} title='if-elif-else'>
 						<p>
-							E se tivermos mais de duas opções? A solução é o <code>elif</code>{" "}
-							(uma contração de "else if"). O <code>elif</code> permite-nos
-							testar uma nova condição apenas se a condição anterior for falsa.
+							Para múltiplas condições em cadeia. A primeira condição
+							Verdadeira é executada e o resto é ignorado.
 						</p>
 						<CodeBlock
 							language='python'
-							code={`
-nota = 85
+							code={`nota = 85
 if nota >= 90:
-    print("Classificação: A")
-elif nota >= 80:  # Só é testado se (nota >= 90) for FALSO
-    print("Classificação: B")
-elif nota >= 70:  # Só é testado se (nota >= 80) for FALSO
-    print("Classificação: C")
-elif nota >= 60:
-    print("Classificação: D")
-else:  # Só executa se TODAS as condições acima forem FALSAS
-    print("Classificação: F (Reprovado)")
-`}
+    print("A")
+elif nota >= 80:
+    print("B") # Executa isto e para
+else:
+    print("C")`}
 						/>
-						<Callout title='Nota Rápida: switch-case'>
-							<p>
-								Algumas linguagens (como C++, Java, C#) têm uma estrutura
-								especial para verificar se uma variável é igual a múltiplos
-								valores diferentes, chamada <code>switch</code>.
-							</p>
-							<CodeBlock
-								language='csharp'
-								code={`
-// Exemplo em C# (não funciona em Python)
-int diaDaSemana = 3;
-string nomeDoDia;
-switch (diaDaSemana)
-{
-    case 1:
-        nomeDoDia = "Segunda-feira";
-        break; // O "break" é vital!
-    case 2:
-        nomeDoDia = "Terça-feira";
-        break;
-    case 3:
-        nomeDoDia = "Quarta-feira";
-        break;
-    default: // Equivalente ao "else"
-        nomeDoDia = "Fim de semana";
-        break;
-}
-Console.WriteLine(nomeDoDia); // Imprime "Quarta-feira"
-`}
-							/>
-						</Callout>
-					</CardContent>
-				</Card>
+					</FeatureCard>
+				</div>
+				<Callout title='Nota Rápida: switch-case'>
+					<p>
+						Algumas linguagens (C++, Java) têm uma estrutura <code>switch</code>{" "}
+						para testar igualdade múltipla, que pode ser mais legível que
+						vários <code>elif</code>.
+					</p>
+					<CodeBlock
+						language='csharp'
+						code={`// C# (não funciona em Python)
+switch (diaDaSemana) {
+    case 1: nome = "Segunda"; break;
+    case 2: nome = "Terça"; break;
+    default: nome = "Outro dia"; break;
+}`}
+					/>
+				</Callout>
 			</LectureSection>
 
-			{/* Repetition Structures */}
-			<LectureSection title='Bloco 3: Estruturas de Repetição (Loops)'>
-				<Card>
-					<CardHeader>
-						<CardTitle>O Loop Condicional: while</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>
-							O loop <code>while</code> (enquanto) é o mais simples. Ele testa
-							uma condição. Se for verdadeira, executa o bloco de código. Depois
-							volta ao topo e testa a condição novamente, até que a condição se
-							torne Falsa.
-						</p>
+			{/* Block 3: Repetition Structures */}
+			<LectureSection
+				title='Bloco 3: Estruturas de Repetição (Loops)'
+				subtitle='Repetir tarefas de forma inteligente'
+			>
+				<div className='space-y-8'>
+					<div className='grid grid-cols-1 items-start gap-8 md:grid-cols-2'>
+						<div>
+							<h3 className='flex items-center gap-2 text-2xl font-bold font-headline'>
+								<Repeat className='text-primary' />O Loop Condicional: `while`
+							</h3>
+							<p className='mt-2 text-muted-foreground'>
+								Executa um bloco de código repetidamente enquanto uma condição for
+								Verdadeira. É ideal quando não sabemos o número exato de
+								iterações.
+							</p>
+							<Callout								
+								title='Cuidado: Loops Infinitos!'
+								type='danger'
+							>
+								<p>
+									Se a condição do `while` nunca se tornar Falsa, o programa
+									ficará preso para sempre. Certifique-se sempre de que a
+									variável da condição é atualizada dentro do loop.
+								</p>
+							</Callout>
+						</div>
 						<CodeBlock
 							language='python'
-							code={`
-# Contagem decrescente para o lançamento
-contador = 10
+							code={`# Contagem decrescente
+contador = 5
 while contador > 0:
-    print(f"T-menos {contador} segundos...")
-    # Passo CRÍTICO: temos de alterar a variável da condição!
-    contador = contador - 1 # Ou contador -= 1
-print("LANÇAR! 🚀")
-`}
+    print(contador)
+    contador -= 1 # Essencial para evitar loop infinito
+print("Lançar!")`}
 						/>
-						<Callout title='Cuidado: Loops Infinitos' type='danger'>
+					</div>
+
+					<div className='grid grid-cols-1 items-start gap-8 md:grid-cols-2'>
+						<div>
+							<h3 className='flex items-center gap-2 text-2xl font-bold font-headline'>
+								<Repeat className='text-primary' />O Loop Contado: `for`
+							</h3>
+							<p className='mt-2 text-muted-foreground'>
+								Perfeito para iterar sobre uma sequência (lista, range, etc.).
+								Executa o bloco de código uma vez para cada item na sequência,
+								de forma mais limpa que um `while`.
+							</p>
+						</div>
+						<CodeBlock
+							language='python'
+							code={`frutas = ["Maçã", "Banana", "Cereja"]
+for fruta in frutas:
+    print(f"Eu gosto de {fruta}")`}
+						/>
+					</div>
+
+					<div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
+						<FeatureCard icon={<StopCircle size={24} />} title='break'>
 							<p>
-								O que acontece se nos esquecermos da linha{" "}
-								<code>contador = contador - 1</code>? A condição{" "}
-								<code>10 &gt; 0</code> será sempre Verdadeira, e o programa
-								ficará preso para sempre!
+								Interrompe e sai do loop imediatamente. Útil para parar a busca
+								assim que um item é encontrado.
 							</p>
 							<CodeBlock
 								language='python'
-								code={`
-# PERIGO: LOOP INFINITO!
-numero_secreto = 7
-palpite = 0
-while palpite != numero_secreto:
-    # O utilizador nunca tem a chance de mudar o palpite DENTRO do loop!
-    print("Adivinhe o número:")
-
-# O código correto teria o input DENTRO do loop.
-`}
-							/>
-						</Callout>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>O Loop Contado: for</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>
-							E se soubermos exatamente quantas vezes queremos repetir? Usamos o
-							loop <code>for</code> (para), desenhado para iterar sobre uma
-							sequência de itens.
-						</p>
-						<CodeBlock
-							language='python'
-							code={`
-# Queremos contar de 1 até 5.
-# range(1, 6) gera a sequência: 1, 2, 3, 4, 5
-
-for numero in range(1, 6):
-    print(f"O número atual é {numero}")
-
-print("Loop 'for' terminado.")
-`}
-						/>
-						<p>
-							O <code>for</code> é ainda mais poderoso. Pode iterar sobre
-							qualquer coleção, como uma lista de compras.
-						</p>
-						<CodeBlock
-							language='python'
-							code={`
-lista_compras = ["Maçãs", "Leite", "Pão", "Café"]
-
-print("Preciso de comprar:")
-for item in lista_compras:
-    print(f"- {item}")
-`}
-						/>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>Controlar o Loop: break e continue</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>
-							<strong>
-								<code>break</code>
-							</strong>{" "}
-							(Quebrar/Parar): Sai imediatamente do loop.
-						</p>
-						<CodeBlock
-							language='python'
-							code={`
-nomes = ["Rui", "Maria", "Pedro", "Ana", "Sofia", "Miguel"]
-nome_procurado = "Ana"
-
-for nome in nomes:
-    print(f"A verificar... {nome}")
-    if nome == nome_procurado:
+								code={`for nome in nomes:
+    if nome == "Ana":
         print("Encontrado!")
-        break  # Sai do loop 'for' imediatamente!
-`}
-						/>
-						<p>
-							<strong>
-								<code>continue</code>
-							</strong>{" "}
-							(Continuar/Saltar): Salta o resto da iteração atual e passa para a
-							próxima.
-						</p>
-						<CodeBlock
-							language='python'
-							code={`
-for i in range(1, 11): # Números de 1 a 10
-    # Se o número for par...
+        break # Para o loop`}
+							/>
+						</FeatureCard>
+						<FeatureCard icon={<SkipForward size={24} />} title='continue'>
+							<p>
+								Salta a iteração atual e avança para a próxima. O loop não
+								termina. Útil para ignorar certos itens.
+							</p>
+							<CodeBlock
+								language='python'
+								code={`for i in range(1, 11):
     if i % 2 == 0:
-        continue # ...salta o resto do código e vai para a próxima iteração
-
-    # Este código só executa para números ímpares
-    print(f"Processando número ímpar: {i}")
-`}
-						/>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>Gestão de Erros: try-except</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>
-							O que acontece quando o nosso código espera uma coisa, mas o
-							utilizador faz outra? O programa pode "crashar". Para evitar isso,
-							usamos o bloco <code>try-except</code>.
-						</p>
-						<p>
-							O bloco <code>try-except</code> permite-nos "tentar" executar um
-							código perigoso. Se falhar, em vez de crashar, ele salta para um
-							bloco de "exceção".
+        continue # Salta os números pares
+    print(i) # Só imprime ímpares`}
+							/>
+						</FeatureCard>
+					</div>
+					<div>
+						<h3 className='mb-4 flex items-center gap-2 text-2xl font-bold font-headline'>
+							<ShieldCheck className='text-primary' />
+							Gestão de Erros com `try-except`
+						</h3>
+						<p className='mb-4 text-muted-foreground'>
+							Quando uma operação pode falhar (ex: converter "abc" em número),
+							o programa pode "crashar". Para evitar isso, usamos o bloco{" "}
+							<code>try-except</code>, que nos permite "tentar" executar um
+							código e "apanhar" o erro se ele acontecer, de forma a podermos
+							lidar com ele sem parar o programa.
 						</p>
 						<CodeBlock
 							language='python'
-							code={`
-try:
-    # Bloco perigoso: Tentamos fazer a conversão
-    idade_str = input("Qual é a sua idade? ")
-    idade_num = int(idade_str)
-    print(f"Daqui a 10 anos terá {idade_num + 10} anos.")
-except ValueError:
-    # Bloco de segurança: Só executa se o 'try' falhar
-    print("Erro: Por favor, introduza um NÚMERO válido (ex: 25).")
-
-print("O programa continua...")
-`}
-						/>
-						<p>
-							Podemos combinar isto com um <code>while</code> para forçar uma
-							resposta válida:
-						</p>
-						<CodeBlock
-							language='python'
-							code={`
-while True: # Loop infinito
+							code={`while True: # Loop para pedir até ser válido
     try:
         idade_str = input("Qual é a sua idade? ")
         idade_num = int(idade_str)
-        # Se a conversão funcionar, saímos do loop
-        break
+        break # Se a conversão funcionar, sai do loop
     except ValueError:
-        # Se falhar, informamos e o loop repete-se
+        # Se falhar, informa e o loop repete-se
         print("Erro: Isso não é um número. Tente novamente.")
 
-print(f"Obrigado! A sua idade é {idade_num}.")
-`}
+print(f"Obrigado! A sua idade é {idade_num}.")`}
 						/>
-					</CardContent>
-				</Card>
+					</div>
+				</div>
 			</LectureSection>
-			{/* Modularity and Functions */}
-			<LectureSection title='Bloco 4: Modularidade e Funções'>
-				<Card>
-					<CardHeader>
-						<CardTitle>O Problema: Repetição de Código</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+
+			{/* Block 4: Modularity */}
+			<LectureSection
+				title='Bloco 4: Modularidade'
+				subtitle='Organizando o código como um profissional'
+			>
+				<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+					<FeatureCard
+						icon={<FunctionSquare size={24} />}
+						title='Funções: O Princípio DRY'
+						className='md:col-span-2'
+					>
 						<p>
-							Repetir o mesmo código em vários locais é mau porque aumenta a
-							chance de erros e dificulta a manutenção. Isto viola o princípio{" "}
-							<strong>DRY: Don't Repeat Yourself</strong> (Não te Repitas).
+							Para evitar repetir código (<strong>D</strong>on't{" "}
+							<strong>R</strong>epeat <strong>Y</strong>ourself), agrupamos
+							lógica reutilizável em <strong>funções</strong>. Uma função é um
+							bloco de código nomeado que podemos "chamar" quando precisarmos.
+							Elas podem receber dados (<strong>parâmetros</strong>) e devolver
+							um resultado (<strong>return</strong>).
 						</p>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>A Solução: Funções</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<p>
-							A solução é "empacotar" essa lógica repetida numa{" "}
-							<strong>função</strong>, um bloco de código nomeado que podemos
-							"chamar" (executar) sempre que quisermos.
-						</p>
-						<h5>1. Definir a Função</h5>
 						<CodeBlock
 							language='python'
-							code={`
-# def = "definir função"
-# saudacao = nome da função
-# (nome_utilizador) = parâmetro (dados que a função recebe)
-def saudacao(nome_utilizador):
-    print("--------------------")
-    print(f"Bem-vindo, {nome_utilizador}!")
-    print("O sistema está pronto.")
-    print("--------------------")
-`}
-						/>
-						<h5>2. Chamar (Invocar) a Função</h5>
-						<CodeBlock
-							language='python'
-							code={`
-saudacao("João")
-saudacao("Admin")
-`}
-						/>
-						<p>Vantagens:</p>
-						<ul>
-							<li>
-								<strong>Reutilização:</strong> Escrevemos uma vez, usamos
-								muitas.
-							</li>
-							<li>
-								<strong>Manutenção:</strong> Alteramos a lógica num único local.
-							</li>
-							<li>
-								<strong>Abstração:</strong> Escondemos a complexidade.
-							</li>
-						</ul>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>Anatomia de uma Função: Parâmetros e Retorno</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
-						<ul>
-							<li>
-								<strong>Parâmetros (Input):</strong> Os dados que a função
-								recebe.
-							</li>
-							<li>
-								<strong>Valor de Retorno (Output):</strong> Os dados que a
-								função devolve.
-							</li>
-						</ul>
-						<CodeBlock
-							language='python'
-							code={`
-# Esta função recebe dois números (a, b) e retorna um valor
+							code={`# 'def' define a função, 'a' e 'b' são parâmetros
 def somar(a, b):
     total = a + b
-    return total # A palavra-chave 'return' envia o resultado de volta
+    return total # 'return' devolve o valor
 
-# Chamamos a função e guardamos o seu resultado numa variável
-resultado_soma = somar(5, 3)
-print(f"O resultado da soma é: {resultado_soma}") # Imprime 8
-`}
+# Chamamos a função e guardamos o resultado
+resultado = somar(5, 3) # resultado será 8`}
 						/>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>Escopo de Variáveis (Local vs. Global)</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+					</FeatureCard>
+					<FeatureCard icon={<Blocks size={24} />} title='Escopo de Variáveis'>
 						<p>
-							<strong>Variáveis Locais:</strong> Criadas dentro de uma função,
-							só existem dentro dela. Isto é bom para isolamento.
-						</p>
-						<p>
-							<strong>Variáveis Globais:</strong> Definidas fora de qualquer
-							função, podem ser lidas por qualquer uma. É má prática
-							modificá-las frequentemente.
+							<strong>Locais:</strong> Criadas dentro de uma função, só existem
+							lá dentro. Isto evita conflitos.
+							<br />
+							<strong>Globais:</strong> Criadas fora, acessíveis em todo o lado.
+							Devem ser usadas com cuidado para evitar confusão.
 						</p>
 						<CodeBlock
 							language='python'
-							code={`
-# Variável Global
-nome_app = "O Meu Super Programa"
-
+							code={`x = 10 # Global
 def minha_funcao():
-    variavel_local = 100 # Variável Local
-    print(f"Dentro da função, posso ler a global: {nome_app}")
-    print(f"E a local: {variavel_local}")
-
-minha_funcao()
-# print(variavel_local) # ISTO DÁ ERRO!
-`}
+    y = 5 # Local
+    print(x) # Acede à global
+# print(y) # Daria erro!`}
 						/>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>
-							Modularidade Real: Importando Ficheiros Externos
-						</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+					</FeatureCard>
+					<FeatureCard icon={<Package size={24} />} title='Módulos e Imports'>
 						<p>
-							Podemos dividir o nosso código em múltiplos ficheiros (módulos) e
-							usar a palavra-chave <code>import</code> para os reutilizar.
+							Dividimos o código em vários ficheiros (módulos). Usamos{" "}
+							<code>import</code> para aceder a funções de outros ficheiros,
+							sejam eles nossos ou de bibliotecas externas.
 						</p>
-						<h5>Ficheiro: geometria.py</h5>
 						<CodeBlock
 							language='python'
-							code={`
-# Dentro do ficheiro: geometria.py
-def calcular_area_retangulo(comprimento, largura):
-    return comprimento * largura
-`}
-						/>
-						<h5>Ficheiro: main.py</h5>
-						<CodeBlock
-							language='python'
-							code={`
-# Dentro do ficheiro: main.py
+							code={`# Em geometria.py -> def area_circulo(r): ...
+
+# Em main.py
 import geometria
-
-area = geometria.calcular_area_retangulo(10, 5)
-print(f"A área é {area}")
-`}
+geometria.area_circulo(10)`}
 						/>
-						<Callout title='O que é if __name__ == "__main__"?'>
-							<p>
-								Esta é uma construção padrão em Python que garante que o código
-								dentro dela só é executado quando o ficheiro é corrido
-								diretamente, e não quando é importado como um módulo.
-							</p>
-						</Callout>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardTitle>
-							Introdução à Programação Orientada a Objetos (POO)
-						</CardTitle>
-					</CardHeader>
-					<CardContent className='prose prose-lg max-w-none'>
+					</FeatureCard>
+					<FeatureCard
+						icon={<Box size={24} />}
+						title='Classes e Objetos (POO)'
+						className='md:col-span-2'
+					>
 						<p>
-							E se pudéssemos criar os nossos próprios tipos de variáveis, que
-							tivessem dados e funções "lá dentro"?
+							A Programação Orientada a Objetos (POO) permite-nos criar os
+							nossos próprios tipos de dados. Uma <strong>Classe</strong> é um
+							molde (ex: a planta de um <code>Carro</code>) e um{" "}
+							<strong>Objeto</strong> é a instância real construída a partir
+							desse molde (ex: <code>meu_carro_vermelho</code>). Isto agrupa
+							dados (atributos) e as funções que operam nesses dados (métodos).
 						</p>
-						<ul>
-							<li>
-								Uma <strong>Classe</strong> é uma planta ou um molde (ex: a
-								planta de um Carro).
-							</li>
-							<li>
-								Um <strong>Objeto</strong> é a coisa real construída a partir da
-								planta (ex: o meu carro vermelho).
-							</li>
-						</ul>
-						<h5>Criar e Usar uma Classe</h5>
 						<CodeBlock
 							language='python'
-							code={`
-# "class" é a palavra-chave para definir a planta
-class Estudante:
-    # O "construtor" (__init__): chamado quando criamos um NOVO objeto
-    def __init__(self, nome_input, idade_input):
-        # Guardamos os dados DENTRO do objeto ("self")
-        self.nome = nome_input
-        self.idade = idade_input
+							code={`class Estudante:
+    def __init__(self, nome_input):
+        self.nome = nome_input # Atributo
 
-    # Um "método" (uma função que pertence à classe)
-    def apresentar_se(self):
-        print(f"Olá! O meu nome é {self.nome} e tenho {self.idade} anos.")
+    def apresentar_se(self): # Método
+        print(f"Olá! O meu nome é {self.nome}.")
 
-# Criar objetos (instâncias) a partir da classe
-estudante_ana = Estudante("Ana Silva", 20)
-estudante_rui = Estudante("Rui Mendes", 22)
-
-# Chamar os seus métodos
-estudante_ana.apresentar_se() # Olá! O meu nome é Ana Silva e tenho 20 anos.
-estudante_rui.apresentar_se() # Olá! O meu nome é Rui Mendes e tenho 22 anos.
-`}
+# Criar um objeto (instância) da classe
+estudante_ana = Estudante("Ana Silva")
+# Chamar o seu método
+estudante_ana.apresentar_se()`}
 						/>
-					</CardContent>
-				</Card>
+					</FeatureCard>
+				</div>
 			</LectureSection>
-			<Task
-				title='A sua primeira missão: A Área de um Círculo'
-				description={`<ol className='list-decimal space-y-2 pl-5 text-muted-foreground'>
+
+			{/* Block 5: Integrated Example */}
+			<LectureSection
+				title='Bloco 5: Exemplo Integrador'
+				subtitle='Juntando todos os conceitos'
+			>
+				<p className='prose prose-lg max-w-none text-muted-foreground'>
+					Vamos criar um mini-programa de gestão de pauta, dividido em dois
+					ficheiros. Este exemplo usa classes, funções, loops, decisões e
+					gestão de erros.
+				</p>
+				<div className='mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2'>
+					<div className='rounded-lg border bg-card/50 p-4'>
+						<h4 className='mb-2 flex items-center gap-2 font-mono text-sm font-semibold'>
+							<FileCode className='text-primary' />
+							gestor_alunos.py
+						</h4>
+						<CodeBlock
+							language='python'
+							code={`# 1. A CLASSE que modela os nossos dados
+class Aluno:
+    def __init__(self, nome, numero):
+        self.nome = nome
+        self.numero = numero
+        self.nota = 0
+
+    def dar_nota(self, nota_atribuida):
+        # 2. Decisão (IF) para validar dados
+        if 0 <= nota_atribuida <= 20:
+            self.nota = nota_atribuida
+            return True
+        else:
+            print("Erro: A nota deve ser entre 0 e 20.")
+            return False
+
+    def apresentar(self):
+        print(f"Aluno: {self.nome} - Nota: {self.nota}")
+
+# 3. UMA FUNÇÃO de ajuda
+def pedir_nota_aluno():
+    # 4. Gestão de Erros (TRY-EXCEPT)
+    try:
+        nota_str = input("Introduza a nota (0-20): ")
+        return int(nota_str)
+    except ValueError:
+        print("Input inválido.")
+        return None`}
+						/>
+					</div>
+					<div className='rounded-lg border bg-card/50 p-4'>
+						<h4 className='mb-2 flex items-center gap-2 font-mono text-sm font-semibold'>
+							<PlayCircle className='text-primary' />
+							main.py
+						</h4>
+						<CodeBlock
+							language='python'
+							code={`# 5. IMPORTAÇÃO do nosso módulo
+from gestor_alunos import Aluno, pedir_nota_aluno
+
+def main():
+    lista_da_turma = [
+        Aluno("Beatriz Costa", 1001),
+        Aluno("Carlos Dias", 1002)
+    ]
+
+    # 6. LOOP (FOR) sobre objetos
+    for aluno in lista_da_turma:
+        print(f"\\nA avaliar: {aluno.nome}")
+        
+        # 7. LOOP (WHILE) para input correto
+        while True:
+            nota = pedir_nota_aluno()
+            if nota is not None and aluno.dar_nota(nota):
+                break # Sai do while se a nota for válida
+
+    print("\\n--- Pauta Final ---")
+    for aluno in lista_da_turma:
+        aluno.apresentar()
+
+# Ponto de entrada do programa
+if __name__ == "__main__":
+    main()`}
+						/>
+					</div>
+				</div>
+			</LectureSection>
+
+			{/* Conclusion & Homework */}
+			<Task title='Conclusão e Tarefa Extraclasse'>
+				<p>
+					Hoje vimos como controlar o fluxo do nosso código com{" "}
+					<strong>decisões</strong> (if/else) e <strong>repetições</strong>{" "}
+					(loops), e como organizar tudo com <strong>funções</strong>,{" "}
+					<strong>classes</strong> e <strong>módulos</strong>. Agora, é a vossa
+					vez de expandir o nosso projeto!
+				</p>
+				<ol>
 					<li>
-						Melhorar a Classe <code>Aluno</code> (em{" "}
-						<code>gestor_alunos.py</code>):
-						<ul className='list-disc pl-5'>
+						<strong>
+							Melhorar a Classe <code>Aluno</code> (em{" "}
+							<code>gestor_alunos.py</code>):
+						</strong>
+						<ul>
 							<li>
 								Adicione um novo atributo no <code>__init__</code>:{" "}
 								<code>self.faltas = 0</code>.
 							</li>
 							<li>
-								Adicione um novo método: <code>marcar_falta(self)</code>. Este
-								método deve simplesmente fazer <code>self.faltas += 1</code>.
+								Crie um novo método <code>marcar_falta(self)</code> que faz{" "}
+								<code>self.faltas += 1</code>.
 							</li>
 							<li>
-								Modifique o método <code>apresentar(self)</code> para que também
-								mostre o número de faltas.
+								Modifique o método <code>apresentar(self)</code> para mostrar
+								também o número de faltas.
 							</li>
 						</ul>
 					</li>
 					<li>
-						Melhorar o <code>main.py</code>:
-						<ul className='list-disc pl-5'>
+						<strong>
+							Melhorar o <code>main.py</code>:
+						</strong>
+						<ul>
 							<li>
-								Crie uma nova função <code>mostrar_menu()</code> que imprime
-								opções para o utilizador:
-								<ol className='list-decimal pl-5'>
-									<li>Dar notas a todos os alunos.</li>
-									<li>Marcar falta a um aluno.</li>
-									<li>Ver pauta final.</li>
-									<li>Sair.</li>
-								</ol>
+								Crie uma função <code>mostrar_menu()</code> que imprime opções
+								para o utilizador: 1. Dar notas, 2. Marcar falta, 3. Ver
+								pauta, 4. Sair.
 							</li>
 							<li>
-								Coloque o programa principal (o <code>main()</code>) dentro de
-								um <code>while True:</code> que corre o menu.
+								Coloque a lógica principal num loop <code>while True</code> que
+								corre o menu.
 							</li>
 							<li>
-								Use <code>if/elif/else</code> para correr a lógica apropriada
-								com base na escolha do utilizador. (Se escolher "4", use{" "}
-								<code>break</code> para sair do loop <code>while</code>).
-							</li>
-							<li>
-								Para a opção "Marcar falta", terá de perguntar qual o aluno
-								(pelo número, por exemplo) e depois encontrar esse objeto{" "}
-								<code>Aluno</code> na <code>lista_da_turma</code> para poder
-								chamar o método <code>marcar_falta()</code>.
+								Use <code>if/elif/else</code> para executar a lógica com base na
+								escolha. Se for "4", use <code>break</code> para sair.
 							</li>
 						</ul>
 					</li>
-				</ol>`}
-			/>
-		</div>
+				</ol>
+			</Task>
+
+			<LectureSection title='Bloco 6: Perguntas e Respostas (Q&A)'>
+				<div className='prose prose-lg max-w-none text-muted-foreground'>
+					<p>
+						Agora é a vossa vez! Que dúvidas têm? Algum conceito que não ficou
+						claro?
+					</p>
+				</div>
+			</LectureSection>
+		</main>
 	);
 };
 

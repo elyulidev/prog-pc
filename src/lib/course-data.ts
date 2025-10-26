@@ -43,7 +43,7 @@ export const courseModules: Module[] = [
 			},
 			{
 				id: "3",
-				title: "Aula 3 (Em breve)",
+				title: "Estruturas de Controlo de Fluxo e Modularidade",
 				content: [
 					{
 						type: "text",

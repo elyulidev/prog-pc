@@ -79,6 +79,7 @@ export default function lecture() {
 							stroke='currentColor'
 							strokeWidth='2'
 							strokeLinecap='round'
+
 							strokeLinejoin='round'
 							className='lucide lucide-sparkles'
 						>
@@ -331,10 +332,13 @@ print(type(dict_notas))
 
 			<ArithmeticOperators />
 			<AssignmentOperators />
-			<Task
-				title='Tarefa: Calculadora de Média'
-				description='Crie um programa em Python que calcule a média de três notas e imprima o resultado. Utilize variáveis para armazenar as notas e os operadores aritméticos para realizar o cálculo.'
-			/>
+			<Task title='Tarefa: Calculadora de Média'>
+				<p>
+					Crie um programa em Python que calcule a média de três notas e imprima
+					o resultado. Utilize variáveis para armazenar as notas e os
+					operadores aritméticos para realizar o cálculo.
+				</p>
+			</Task>
 		</div>
 	);
 }

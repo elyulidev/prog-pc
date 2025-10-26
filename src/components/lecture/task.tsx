@@ -4,18 +4,18 @@ import { Button } from "@/components/ui/button";
 import {
 	Card,
 	CardContent,
-	CardDescription,
 	CardHeader,
+	CardTitle,
 } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 interface TaskProps {
 	title: string;
-	description: string;
+	children: React.ReactNode;
 }
 
-export function Task({ title, description }: TaskProps) {
+export function Task({ title, children }: TaskProps) {
 	const [isCompleted, setIsCompleted] = useState(false);
 
 	if (isCompleted) {
@@ -24,9 +24,9 @@ export function Task({ title, description }: TaskProps) {
 				<CardHeader>
 					<div className='flex items-center gap-x-4'>
 						<CheckCircle className='text-green-500' />
-						<h2 className='text-2xl font-bold text-green-500'>
+						<CardTitle className='text-2xl font-bold text-green-500'>
 							Tarefa Concluída!
-						</h2>
+						</CardTitle>
 					</div>
 				</CardHeader>
 				<CardContent>
@@ -42,11 +42,13 @@ export function Task({ title, description }: TaskProps) {
 	return (
 		<Card className='lg:col-span-2'>
 			<CardHeader>
-				<h2 className='text-2xl font-bold'>{title}</h2>
-				<CardDescription>{description}</CardDescription>
+				<CardTitle className='text-2xl font-bold'>{title}</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<Button onClick={() => setIsCompleted(true)}>
+				<div className='prose dark:prose-invert max-w-none text-muted-foreground'>
+					{children}
+				</div>
+				<Button onClick={() => setIsCompleted(true)} className='mt-6 not-prose'>
 					Marcar como concluído
 				</Button>
 			</CardContent>
