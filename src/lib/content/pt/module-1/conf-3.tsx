@@ -512,31 +512,34 @@ if __name__ == "__main__":
 				subtitle='Ponha em prática o que aprendeu'
 			>
 				<Task title='Tarefa: Gestor de Turma Interativo'>
-					<p>
-						Hoje vimos como controlar o fluxo do nosso código com{" "}
+					<p className='font-semibold text-foreground'>
+						✅ Hoje vimos como controlar o fluxo do nosso código com{" "}
 						<strong>decisões</strong> (if/else) e <strong>repetições</strong>{" "}
 						(loops), e como organizar tudo com <strong>funções</strong>,{" "}
 						<strong>classes</strong> e <strong>módulos</strong>. Agora, é a
 						vossa vez de expandir o nosso projeto!
 					</p>
-					<ol>
+					<ol className='list-decimal space-y-2 pl-5 text-muted-foreground'>
 						<li>
 							<strong>
 								Melhorar a Classe <code>Aluno</code> (em{" "}
 								<code>gestor_alunos.py</code>):
 							</strong>
-							<ul>
+							<ul className='list-disc space-y-2 pl-5 text-muted-foreground'>
 								<li>
-									Adicione um novo atributo no <code>__init__</code>:{" "}
+									Adicione um novo atributo no{" "}
+									<span className='font-bold'>constructor</span>:{" "}
 									<code>self.faltas = 0</code>.
 								</li>
 								<li>
-									Crie um novo método <code>marcar_falta(self)</code> que faz{" "}
+									Crie um novo método{" "}
+									<code className='font-bold'>marcar_falta(self)</code> que faz{" "}
 									<code>self.faltas += 1</code>.
 								</li>
 								<li>
-									Modifique o método <code>apresentar(self)</code> para mostrar
-									também o número de faltas.
+									Modifique o método{" "}
+									<code className='font-bold'>apresentar(self)</code> para
+									mostrar também o número de faltas.
 								</li>
 							</ul>
 						</li>
@@ -544,11 +547,12 @@ if __name__ == "__main__":
 							<strong>
 								Melhorar o <code>main.py</code>:
 							</strong>
-							<ul>
+							<ul className='list-disc space-y-2 pl-5 text-muted-foreground'>
 								<li>
-									Crie uma função <code>mostrar_menu()</code> que imprime opções
-									para o utilizador: 1. Dar notas, 2. Marcar falta, 3. Ver
-									pauta, 4. Sair.
+									Crie uma função{" "}
+									<code className='font-bold'>mostrar_menu()</code> que imprime
+									opções para o utilizador: 1. Dar notas, 2. Marcar falta, 3.
+									Ver pauta, 4. Sair.
 								</li>
 								<li>
 									Coloque a lógica principal num loop <code>while True</code>{" "}
@@ -566,8 +570,8 @@ if __name__ == "__main__":
 			</LectureSection>
 
 			<LectureSection title='Bloco 7: Perguntas e Respostas (Q&A)'>
-				<div className='prose prose-lg max-w-none text-muted-foreground'>
-					<p>
+				<div className='prose prose-lg max-w-none text-muted-foreground rounded-lg border bg-card/50 p-4'>
+					<p className='text-xl'>
 						Agora é a vossa vez! Que dúvidas têm? Algum conceito que não ficou
 						claro?
 					</p>

@@ -1,12 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -48,9 +43,9 @@ export function Task({ title, children }: TaskProps) {
 				<div className='prose dark:prose-invert max-w-none text-muted-foreground'>
 					{children}
 				</div>
-				<Button onClick={() => setIsCompleted(true)} className='mt-6 not-prose'>
+				{/* <Button onClick={() => setIsCompleted(true)} className='mt-6 not-prose'>
 					Marcar como concluído
-				</Button>
+				</Button> */}
 			</CardContent>
 		</Card>
 	);
