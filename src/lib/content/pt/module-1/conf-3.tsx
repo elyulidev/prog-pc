@@ -172,22 +172,6 @@ else:
 						/>
 					</FeatureCard>
 				</div>
-				<Callout title='Nota Rápida: switch-case'>
-					<p>
-						Algumas linguagens (C++, Java) têm uma estrutura <code>switch</code>{" "}
-						para testar igualdade múltipla, que pode ser mais legível que vários{" "}
-						<code>elif</code>.
-					</p>
-					<CodeBlock
-						language='csharp'
-						code={`// C# (não funciona em Python)
-switch (diaDaSemana) {
-    case 1: nome = "Segunda"; break;
-    case 2: nome = "Terça"; break;
-    default: nome = "Outro dia"; break;
-}`}
-					/>
-				</Callout>
 			</LectureSection>
 
 			{/* Block 3: Repetition Structures */}
@@ -291,12 +275,154 @@ for fruta in frutas:
     try:
         idade_str = input("Qual é a sua idade? ")
         idade_num = int(idade_str)
+		 print(f"Obrigado! A sua idade é {idade_num}.")
         break # Se a conversão funcionar, sai do loop
-    except ValueError:
+    except Exception as ex:
         # Se falhar, informa e o loop repete-se
-        print("Erro: Isso não é um número. Tente novamente.")
+        print("Aconteceu uma exeção", type(ex))
 
-print(f"Obrigado! A sua idade é {idade_num}.")`}
+`}
+						/>
+					</div>
+				</div>
+			</LectureSection>
+
+			{/* Block 3.1: Iterables & Iterators, Enumerate, Zip, List Comprehensions */}
+			<LectureSection
+				title='Bloco 3.1: Iteráveis, iteradores e Formas Pythonicas de Iterar'
+				subtitle='enumerate, zip e list comprehensions — código mais limpo e eficiente'
+			>
+				<div className='space-y-6'>
+					<div className='prose prose-lg max-w-none text-muted-foreground'>
+						<p>
+							Nesta secção vamos explorar conceitos que tornam a iteração em
+							Python eficiente e elegante: <strong>Iteráveis</strong>,{" "}
+							<strong>iteradores</strong>, <strong>enumerate</strong>,{" "}
+							<span>zip</span> e <strong>list comprehensions</strong>. São
+							ferramentas essenciais para escrever código legível e performante.
+						</p>
+					</div>
+
+					<div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
+						<div className='rounded-lg border bg-card/50 p-6'>
+							<h4 className='mb-2 text-lg font-semibold'>
+								Iteráveis e iteradores
+							</h4>
+							<p className='text-muted-foreground'>
+								Um <strong>iterável</strong> é qualquer objecto em Python que
+								pode devolver os seus elementos um a um (listas, tuplas,
+								strings, dicionários, etc.). Um <strong>iterador</strong> é o
+								objecto que mantém o estado da iteração (e.g. onde estamos na
+								sequência). Pode obter-se um iterador chamando{" "}
+								<code className='font-bold'>iter()</code> sobre um iterable e
+								avançar com <code className='font-bold'>next()</code>.
+							</p>
+							<CodeBlock
+								language='python'
+								code={`lista = [10, 20, 30]
+it = iter(lista)
+print(next(it))  # 10
+print(next(it))  # 20
+print(next(it))  # 30
+# next(it) agora levantaria StopIteration`}
+							/>
+						</div>
+
+						<div className='rounded-lg border bg-card/50 p-6'>
+							<h4 className='mb-2 text-lg font-semibold'>
+								enumerate — índices limpos
+							</h4>
+							<p className='text-muted-foreground'>
+								Evita gerir manualmente contadores: <code>enumerate()</code>{" "}
+								devolve pares (indice, valor). Aceita um argumento opcional para
+								o índice inicial.
+							</p>
+							<CodeBlock
+								language='python'
+								code={`frutas = ["Maçã", "Banana", "Cereja"]
+for i, fruta in enumerate(frutas):
+    print(f"{i}: {fruta}")
+
+# Saída:
+# 0: Maçã
+# 1: Banana
+# 2: Cereja`}
+							/>
+						</div>
+					</div>
+
+					<div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
+						<div className='rounded-lg border bg-card/50 p-6'>
+							<h4 className='mb-2 text-lg font-semibold'>
+								zip — combinar sequências
+							</h4>
+							<p className='text-muted-foreground'>
+								O <code>zip()</code> permite iterar em paralelo sobre várias
+								sequências, criando tuplos com um elemento de cada. Se as
+								sequências tiverem comprimentos diferentes, o zip para no menor.
+							</p>
+							<CodeBlock
+								language='python'
+								code={`nomes = ["Ana", "Bruno", "Carla"]
+notas = [17, 14, 19]
+for nome, nota in zip(nomes, notas):
+    print(f"{nome}: {nota}")
+
+# Saída:
+# Ana: 17
+# Bruno: 14
+# Carla: 19`}
+							/>
+						</div>
+
+						<div className='rounded-lg border bg-card/50 p-6'>
+							<h4 className='mb-2 text-lg font-semibold'>
+								List Comprehensions — Pythonic e Rápido
+							</h4>
+							<p className='text-muted-foreground'>
+								Uma forma concisa de construir listas a partir de iterables.
+								Mais legível e frequentemente mais rápida do que construir
+								listas com loops.
+							</p>
+							<CodeBlock
+								language='python'
+								code={`# Criar uma lista de quadrados
+quadrados = [x*x for x in range(10)]
+print(quadrados)
+
+# Com condição
+pares = [x for x in range(20) if x % 2 == 0]
+print(pares)`}
+							/>
+						</div>
+					</div>
+
+					<Callout title='Dica Prática' type='info'>
+						<p>
+							Prefira <code>enumerate</code>, <code>zip</code> e comprehensions
+							para manter o código claro e evitar contadores manuais ou
+							acumulação verbose.
+						</p>
+					</Callout>
+
+					<div className='mt-4 rounded-lg border bg-card/50 p-4'>
+						<h4 className='font-semibold mb-2'>Exercício Rápido</h4>
+						<p className='text-muted-foreground mb-2'>
+							Dado uma lista de nomes e outra de idades, crie uma lista de
+							strings no formato &quot;Nome (Idade)&quot; usando{" "}
+							<code>zip</code> e uma segunda lista só com os nomes de pessoas
+							com mais de 18 anos usando uma list comprehension com condição.
+						</p>
+						<CodeBlock
+							language='python'
+							code={`nomes = ["Ana", "Bruno", "Carla", "Daniel"]
+idades = [17, 22, 19, 15]
+
+combinados = [f"{n} ({i})" for n, i in zip(nomes, idades)]
+adultos = [n for n, i in zip(nomes, idades) if i >= 18]
+
+print(combinados)
+print(adultos)`}
 						/>
 					</div>
 				</div>
@@ -332,7 +458,11 @@ def somar(a, b):
 resultado = somar(5, 3) # resultado será 8`}
 						/>
 					</FeatureCard>
-					<FeatureCard icon={<Blocks size={24} />} title='Escopo de Variáveis'>
+					<FeatureCard
+						icon={<Blocks size={24} />}
+						title='Escopo de Variáveis'
+						className='md:col-span-2'
+					>
 						<p>
 							<strong>Locais:</strong> Criadas dentro de uma função, só existem
 							lá dentro. Isto evita conflitos.
@@ -349,20 +479,123 @@ def minha_funcao():
 # print(y) # Daria erro!`}
 						/>
 					</FeatureCard>
-					<FeatureCard icon={<Package size={24} />} title='Módulos e Imports'>
+					<FeatureCard
+						icon={<Package size={24} />}
+						title='Módulos e Imports'
+						className='md:col-span-2'
+					>
 						<p>
-							Dividimos o código em vários ficheiros (módulos). Usamos{" "}
-							<code>import</code> para aceder a funções de outros ficheiros,
-							sejam eles nossos ou de bibliotecas externas.
+							Módulos e pacotes são a base da organização de código em Python.
+							Um módulo é simplesmente um ficheiro .py que contém funções,
+							classes e variáveis. Um pacote é uma pasta com um ficheiro{" "}
+							<code>__init__.py</code>
+							(opcional nas versões mais recentes, mas ainda comum) que agrupa
+							múltiplos módulos.
+						</p>
+						<h4 className='mt-4 mb-2 font-semibold'>Criar e usar um módulo</h4>
+						<p className='text-muted-foreground'>
+							Exemplo simples: um módulo de geometria.
 						</p>
 						<CodeBlock
 							language='python'
-							code={`# Em geometria.py -> def area_circulo(r): ...
+							code={`# --- geometria.py (módulo)
+def area_circulo(raio):
+    from math import pi
+    return pi * raio * raio
 
-# Em main.py
+# --- main.py (usar o módulo)
 import geometria
-geometria.area_circulo(10)`}
+
+print(geometria.area_circulo(5))  # usar com o nome do módulo
+
+# Ou importar só a função
+from geometria import area_circulo
+print(area_circulo(5))`}
 						/>
+
+						<h4 className='mt-4 mb-2 font-semibold'>
+							Aliases, imports seletivos e wildcard
+						</h4>
+						<CodeBlock
+							language='python'
+							code={`# Alias
+import geometria as geo
+print(geo.area_circulo(3))
+
+# Import seletivo (bom para nomes específicos)
+from geometria import area_circulo as ac
+print(ac(3))
+
+# Evite imports com * (wildcard) porque poluem o namespace e tornam o código
+# difícil de ler: from modulo import *`}
+						/>
+
+						<h4 className='mt-4 mb-2 font-semibold'>
+							Pacotes e imports relativos
+						</h4>
+						<p className='text-muted-foreground'>
+							Estrutura de pacote e uso de imports absolutos vs relativos.
+						</p>
+						<CodeBlock
+							language='text'
+							code={`meu_projeto/
+  pacote/
+    __init__.py
+    modulo_a.py
+    subpkg/
+      __init__.py
+      modulo_b.py
+
+# import absoluto (preferível para clareza)
+from pacote.modulo_a import funcao
+
+# import relativo (útil dentro do pacote)
+from .subpkg.modulo_b import outra_funcao`}
+						/>
+
+						<h4 className='mt-4 mb-2 font-semibold'>
+							Maneiras de executar um módulo
+						</h4>
+						<CodeBlock
+							language='python'
+							code={`# dentro de um módulo (ex: geometria.py)
+def teste():
+    print('Teste rápido')
+
+if __name__ == "__main__":
+    # Código de teste que corre só quando o ficheiro é executado como script
+    teste()`}
+						/>
+
+						<Callout title='Problemas comuns e boas práticas' type='info'>
+							<ul className='list-disc pl-5 text-muted-foreground'>
+								<li>
+									Não nomeie os seus módulos com nomes de módulos da biblioteca
+									padrão (ex: math.py).
+								</li>
+								<li>
+									Prefira <strong>imports absolutos</strong> para clareza em
+									projetos maiores.
+								</li>
+								<li>
+									Evite <code>from module import *</code>; prefira import
+									seletivo ou uso do módulo como namespace.
+								</li>
+								<li>
+									Tenha cuidado com <strong>imports circulares</strong> —
+									reestruture o código em funções/utilitários comuns se
+									ocorrerem.
+								</li>
+								<li>
+									Use ambientes virtuais (venv, pipenv, poetry) para gerir
+									dependências externas.
+								</li>
+								<li>
+									Use <code>sys.path</code> com cuidado; prefira configurar o
+									projecto/packaging corretamente.
+								</li>
+							</ul>
+						</Callout>
 					</FeatureCard>
 					<FeatureCard
 						icon={<Box size={24} />}
@@ -544,7 +777,7 @@ if __name__ == "__main__":
 				</Task>
 			</LectureSection>
 
-			<LectureSection title='Bloco 7: Perguntas e Respostas (Q&A)'>
+			<LectureSection title='Bloco 7: Perguntas e Respostas'>
 				<div className='prose prose-lg max-w-none text-muted-foreground rounded-lg border bg-card/50 p-4'>
 					<p className='text-xl'>
 						Agora é a vossa vez! Que dúvidas têm? Algum conceito que não ficou
