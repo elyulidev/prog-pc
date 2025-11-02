@@ -429,7 +429,7 @@ print(adultos)`}
 			</LectureSection>
 
 			{/* Block 4: Modularity */}
-			{/* <LectureSection
+			<LectureSection
 				title='Bloco 4: Modularidade'
 				subtitle='Organizando o código como um profissional'
 			>
@@ -626,10 +626,10 @@ estudante_ana.apresentar_se()`}
 						/>
 					</FeatureCard>
 				</div>
-			</LectureSection> */}
+			</LectureSection>
 
 			{/* Block 5: Integrated Example */}
-			{/* <LectureSection
+			<LectureSection
 				title='Bloco 5: Exemplo Integrador'
 				subtitle='Juntando todos os conceitos'
 			>
@@ -712,10 +712,10 @@ if __name__ == "__main__":
 						/>
 					</div>
 				</div>
-			</LectureSection> */}
+			</LectureSection>
 
 			{/* Conclusion & Homework */}
-			{/* <LectureSection
+			<LectureSection
 				title='Bloco 6: Conclusão e Tarefa'
 				subtitle='Ponha em prática o que aprendeu'
 			>
@@ -775,7 +775,7 @@ if __name__ == "__main__":
 						</li>
 					</ol>
 				</Task>
-			</LectureSection> */}
+			</LectureSection>
 		</main>
 	);
 };
