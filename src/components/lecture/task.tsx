@@ -1,9 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
-import { useState } from "react";
 
 interface TaskProps {
 	title: string;
@@ -11,9 +8,9 @@ interface TaskProps {
 }
 
 export function Task({ title, children }: TaskProps) {
-	const [isCompleted, setIsCompleted] = useState(false);
+	//const [isCompleted, setIsCompleted] = useState(false);
 
-	if (isCompleted) {
+	/* if (isCompleted) {
 		return (
 			<Card className='lg:col-span-2 bg-green-50 dark:bg-green-900/20'>
 				<CardHeader>
@@ -32,7 +29,7 @@ export function Task({ title, children }: TaskProps) {
 				</CardContent>
 			</Card>
 		);
-	}
+	} */
 
 	return (
 		<Card className='lg:col-span-2'>
