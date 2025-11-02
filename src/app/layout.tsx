@@ -37,6 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang='pt' suppressHydrationWarning>
 			<head>
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' type='image/ico' sizes='48x48' />
 				<link
 					rel='icon'
@@ -60,7 +61,7 @@ export default function RootLayout({
 				<link rel='manifest' href='/manifest.webmanifest' />
 			</head>
 			<body
-				className={`${sourceCodePro.variable} ${ptSans.variable} ${inter.variable} antialiased overflow-x-hidden`}
+				className={`${sourceCodePro.variable} ${ptSans.variable} ${inter.variable} antialiased`}
 			>
 				<ThemeProvider
 					attribute='class'
@@ -69,11 +70,11 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 					<SidebarProvider>
-						<div className='flex min-h-screen w-full'>
+						<div className='flex min-h-screen w-screen'>
 							<MainSidebar />
 							<div className='flex flex-1 flex-col'>
 								<Header />
-								<main className='flex-1 p-4 sm:p-6 lg:p-8 bg-background'>
+								<main className='flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-background'>
 									{children}
 								</main>
 							</div>

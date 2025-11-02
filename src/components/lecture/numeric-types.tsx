@@ -75,7 +75,7 @@ export function NumericTypes() {
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<div className='flex space-x-2 mb-4'>
+				<div className='flex flex-wrap space-x-2 mb-4'>
 					{numericTypes.map((type) => (
 						<button
 							key={type.id}

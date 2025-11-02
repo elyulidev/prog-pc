@@ -72,7 +72,7 @@ const LecturePage = () => {
 				title='Bloco 1: Introdução'
 				subtitle='Além do caminho linear'
 			>
-				<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+				<div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
 					<div className='prose prose-lg max-w-none space-y-4 text-muted-foreground'>
 						<p>
 							Olá a todos! 👋 Bem-vindos à nossa terceira conferência. Hoje,
@@ -180,7 +180,7 @@ else:
 				subtitle='Repetir tarefas de forma inteligente'
 			>
 				<div className='space-y-8'>
-					<div className='grid grid-cols-1 items-start gap-8 md:grid-cols-2'>
+					<div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
 						<div>
 							<h3 className='flex items-center gap-2 text-2xl font-bold font-headline'>
 								<Repeat className='text-primary' />O Loop Condicional: `while`
@@ -209,7 +209,7 @@ print("Lançar!")`}
 						/>
 					</div>
 
-					<div className='grid grid-cols-1 items-start gap-8 md:grid-cols-2'>
+					<div className='grid grid-cols-1 items-start gap-8 lg:grid-cols-2'>
 						<div>
 							<h3 className='flex items-center gap-2 text-2xl font-bold font-headline'>
 								<Repeat className='text-primary' />O Loop Contado: `for`
@@ -317,7 +317,7 @@ for fruta in frutas:
 								<code className='font-bold'>iter()</code> sobre um iterable e
 								avançar com <code className='font-bold'>next()</code>.
 							</p>
-							<CodeBlock
+							{/* <CodeBlock
 								language='python'
 								code={`lista = [10, 20, 30]
 it = iter(lista)
@@ -325,7 +325,7 @@ print(next(it))  # 10
 print(next(it))  # 20
 print(next(it))  # 30
 # next(it) agora levantaria StopIteration`}
-							/>
+							/> */}
 						</div>
 
 						<div className='rounded-lg border bg-card/50 p-6'>
@@ -337,7 +337,7 @@ print(next(it))  # 30
 								devolve pares (indice, valor). Aceita um argumento opcional para
 								o índice inicial.
 							</p>
-							<CodeBlock
+							{/* <CodeBlock
 								language='python'
 								code={`frutas = ["Maçã", "Banana", "Cereja"]
 for i, fruta in enumerate(frutas):
@@ -347,7 +347,7 @@ for i, fruta in enumerate(frutas):
 # 0: Maçã
 # 1: Banana
 # 2: Cereja`}
-							/>
+							/> */}
 						</div>
 					</div>
 
@@ -361,7 +361,7 @@ for i, fruta in enumerate(frutas):
 								sequências, criando tuplos com um elemento de cada. Se as
 								sequências tiverem comprimentos diferentes, o zip para no menor.
 							</p>
-							<CodeBlock
+							{/* <CodeBlock
 								language='python'
 								code={`nomes = ["Ana", "Bruno", "Carla"]
 notas = [17, 14, 19]
@@ -372,7 +372,7 @@ for nome, nota in zip(nomes, notas):
 # Ana: 17
 # Bruno: 14
 # Carla: 19`}
-							/>
+							/> */}
 						</div>
 
 						<div className='rounded-lg border bg-card/50 p-6'>
@@ -384,7 +384,7 @@ for nome, nota in zip(nomes, notas):
 								Mais legível e frequentemente mais rápida do que construir
 								listas com loops.
 							</p>
-							<CodeBlock
+							{/* <CodeBlock
 								language='python'
 								code={`# Criar uma lista de quadrados
 quadrados = [x*x for x in range(10)]
@@ -393,7 +393,7 @@ print(quadrados)
 # Com condição
 pares = [x for x in range(20) if x % 2 == 0]
 print(pares)`}
-							/>
+							/> */}
 						</div>
 					</div>
 
@@ -429,11 +429,11 @@ print(adultos)`}
 			</LectureSection>
 
 			{/* Block 4: Modularity */}
-			<LectureSection
+			{/* <LectureSection
 				title='Bloco 4: Modularidade'
 				subtitle='Organizando o código como um profissional'
 			>
-				<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+				<div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
 					<FeatureCard
 						icon={<FunctionSquare size={24} />}
 						title='Funções: O Princípio DRY'
@@ -626,10 +626,10 @@ estudante_ana.apresentar_se()`}
 						/>
 					</FeatureCard>
 				</div>
-			</LectureSection>
+			</LectureSection> */}
 
 			{/* Block 5: Integrated Example */}
-			<LectureSection
+			{/* <LectureSection
 				title='Bloco 5: Exemplo Integrador'
 				subtitle='Juntando todos os conceitos'
 			>
@@ -712,10 +712,10 @@ if __name__ == "__main__":
 						/>
 					</div>
 				</div>
-			</LectureSection>
+			</LectureSection> */}
 
 			{/* Conclusion & Homework */}
-			<LectureSection
+			{/* <LectureSection
 				title='Bloco 6: Conclusão e Tarefa'
 				subtitle='Ponha em prática o que aprendeu'
 			>
@@ -775,16 +775,7 @@ if __name__ == "__main__":
 						</li>
 					</ol>
 				</Task>
-			</LectureSection>
-
-			<LectureSection title='Bloco 7: Perguntas e Respostas'>
-				<div className='prose prose-lg max-w-none text-muted-foreground rounded-lg border bg-card/50 p-4'>
-					<p className='text-xl'>
-						Agora é a vossa vez! Que dúvidas têm? Algum conceito que não ficou
-						claro?
-					</p>
-				</div>
-			</LectureSection>
+			</LectureSection> */}
 		</main>
 	);
 };
