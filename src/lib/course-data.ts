@@ -47,13 +47,13 @@ export const courseModules: Module[] = [
 				content: [
 					{
 						type: "text",
-						content: "O conteúdo desta aula estará disponível em breve.",
+						content: "",
 					},
 				],
 			},
 			{
 				id: "4",
-				title: "Aula 4 (Em breve)",
+				title: "O Módulo Math em Python",
 				content: [
 					{
 						type: "text",
